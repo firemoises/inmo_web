@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--website title-->
+    <title>Asenfi inmobiliaria - Bienes raices</title>
+
+    {% load static %}
+    {% load custom_template_tags %}
+    {% load humanize %}
+
+    <!--seo-meta-tag-->
+    <meta charset="UTF-8">
+    <meta name="description" content="real estate, landing page, one page">
+    <meta name="keywords" content="real estate, landing page, one page">
+    <meta name="author" content="rajesh-doot">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--website-favicon-->
+    <link rel="icon" type="image/png" href="/static/core/images/common/favicon.png">
+    <!--plugin-scripts-->
+    <link rel="stylesheet" href="/static/core/css/magnific-popup.min.css">
+    <link rel="stylesheet" href="/static/core/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/core/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <!--google-fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300&display=swap" rel="stylesheet">
+    <!-- template-style-->
+    <link rel="stylesheet" type="text/css" href="/static/core/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/static/core/css/responsive.css">
+  </head>
+  <body data-spy="scroll" data-target=".navbar" data-offset="100">
+    <!--Start Header -->
+    <header class="top-header">
+      <nav class="navbar navbar-expand-lg navbar-light justify-content-between navbar-mobile fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="#"> <img src="/static/core/images/common/Name black red.png" alt="Logo" width="200"></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar4" aria-controls="navbar4" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+          <div class="collapse navbar-collapse" id="navbar4">
+            <ul class="mr-auto"></ul>
+            <ul class="navbar-nav">
+              <li class="nav-item">	<a class="nav-link" href="#home">Home</a>	</li>
+              <li class="nav-item">	<a class="nav-link" href="#agent-adv">Contacto</a>	</li>
+              <li class="nav-item">	<a class="nav-link" href="#location-adv">Mas sobre el inmueble </a>	</li>
+              <li class="nav-item">	<a class="nav-link" href="#location">Ubicacion</a>	</li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!--End Header -->
+    <!--Start Hero-->
+    <section class="hero-section" id="home">
+      <div class="text-block">
+        <div class="container">
+          <div class="row">
+
+            <div class="col-lg-6">
+              <div class="single-image owl-carousel " data-slide="1" data-slide-res="1" data-autoplay="true" data-nav="false" data-dots="false" data-space="0" data-loop="true" data-speed="800">
+                {% if inmueble.image1 %}<div class="item"><img src="{{inmueble.image1.url}}" alt="text" class="img-fluid cropped">	</div>{% endif %}
+                {% if inmueble.image2 %}<div class="item"><img src="{{inmueble.image2.url}}" alt="text" class="img-fluid cropped">	</div>{% endif %}
+                {% if inmueble.image3 %}<div class="item"><img src="{{inmueble.image3.url}}" alt="text" class="img-fluid cropped">	</div>{% endif %}
+                {% if inmueble.image4 %}<div class="item"><img src="{{inmueble.image4.url}}" alt="text" class="img-fluid cropped">	</div>{% endif %}
+                {% if inmueble.image5 %}<div class="item"><img src="{{inmueble.image5.url}}" alt="text" class="img-fluid cropped">	</div>{% endif %}
+                {% if inmueble.image6 %}<div class="item"><img src="{{inmueble.image6.url}}" alt="text" class="img-fluid cropped">	</div>{% endif %}
+                {% if inmueble.image7 %}<div class="item"><img src="{{inmueble.image7.url}}" alt="text" class="img-fluid cropped">	</div>{% endif %}
+                {% if inmueble.image8 %}<div class="item"><img src="{{inmueble.image8.url}}" alt="text" class="img-fluid cropped">	</div>{% endif %}
+                {% if inmueble.image9 %}<div class="item"><img src="{{inmueble.image9.url}}" alt="text" class="img-fluid cropped">	</div>{% endif %}
+                {% if inmueble.image10 %}<div class="item"><img src="{{inmueble.image10.url}}" alt="text" class="img-fluid cropped">	</div>{% endif %}
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+
+            <div class="header-heading">
+
+                <h3>{{inmueble.titulo}}</h3>
+
+                <hr class="my-3"/>
+
+                {% if inmueble.moneda == "P" %} {% setvar "RD$" as simb_moneda %} {% setvar "pesos" as info_moneda %}
+                {% elif inmueble.moneda == "D" %} {% setvar "US$" as simb_moneda %} {% setvar "dolares" as info_moneda %}
+                {% endif %}
+
+                <ul>
+                  <li><b>Codigo:</b> {{inmueble.id}}</li>
+                  <li><b>Precio:</b> {{simb_moneda}}{{inmueble.precio|floatformat|intcomma}} {{info_moneda}} </li>
+                  <li><b>Zona:</b> {{inmueble.zona}}</li>
+                  <li><b>Proximo a:</b> {{inmueble.prox}}</li>
+                </ul>
+
+                <br>
+
+                <div class="row">
+
+                  <div class="col-6">
+                    <div class="row">
+                      {% if inmueble.parqueos_techados and inmueble.parqueos > 1 %} {% setvar "techados" as techado %}
+                      {% elif inmueble.parqueos_techados and inmueble.parqueos == 1 %} {% setvar "techado" as techado %}{% endif %}
+
+                      <div class="col-sm-12"><b>Sobre el Inmueble:</b></div>
+                      {% if inmueble.habs and inmueble.habs > 1 %}<div class="col-sm-12">- {{inmueble.habs}} habitaciones</div>
+                      {% elif inmueble.habs and inmueble.habs == 1 %}<div class="col-sm-12">- {{inmueble.habs}} habitacion</div>{% endif %}
+                      {% if inmueble.banos %}<div class="col-sm-12">- {{inmueble.banos}} baños</div>{% endif %}
+                      {% if inmueble.mts %}<div class="col-sm-12">- {{inmueble.mts}} mts</div>{% endif %}
+                      {% if inmueble.sala %}<div class="col-sm-12">- Sala</div>{% endif %}
+                      {% if inmueble.comedor %}<div class="col-sm-12">- Comedor</div>{% endif %}
+                      {% if inmueble.habs %}<div class="col-sm-12">- Balcon</div>{% endif %}
+                      {% if inmueble.piso %}<div class="col-sm-12">- Piso {{inmueble.piso}}</div>{% endif %}
+                      {% if inmueble.parqueos and inmueble.parqueos > 1 %}<div class="col-sm-12">- {{inmueble.parqueos}} Parqueos {{techado}}</div>
+                      {% elif inmueble.parqueos and inmueble.parqueos == 1 %}<div class="col-sm-12">- {{inmueble.parqueos}} Parqueo {{techado}}</div>{% endif %}
+                      {% if inmueble.terraza %}<div class="col-sm-12">- Terraza</div>{% endif %}
+                    </div>
+                  </div>
+
+                  {% if inmueble.tipo_inmo == 1 or inmueble.tipo_inmo == 3 %}
+                    <div class="col-6">
+                      <div class="row">
+                        {% if inmueble.planta == 1 %} {% setvar "Planta full" as planta %}{% endif %}
+                        {% if inmueble.planta == 2 %} {% setvar "Planta en areas comunes" as planta %}{% endif %}
+
+                        <div class="col-sm-12"><b>Sobre el condominio:</b></div>
+                        {% if inmueble.ascensor %}<div class="col-sm-12">- Ascensor</div>{% endif %}
+                        {% if inmueble.planta %}<div class="col-sm-12">- {{planta}}</div>{% endif %}
+                        {% if inmueble.gas %}<div class="col-sm-12">- Gas comun</div>{% endif %}
+                        {% if inmueble.seguridad24 %}<div class="col-sm-12">- Seguridad 24 horas</div>{% endif %}
+                        {% if inmueble.area_comun %}<div class="col-sm-12">- Area comun de actividades</div>{% endif %}
+                        {% if inmueble.piscina %}<div class="col-sm-12">- Piscina</div>{% endif %}
+                        {% if inmueble.gym %}<div class="col-sm-12">- Gym</div>{% endif %}
+                        {% if inmueble.salon_actividades %}<div class="col-sm-12">- Salon de actividades</div>{% endif %}
+                        {% if inmueble.area_inf %}<div class="col-sm-12">- Area infantil</div>{% endif %}
+                        {% if inmueble.sauna %}<div class="col-sm-12">- Sauna</div>{% endif %}
+                      </div>
+                    </div>
+                  {% endif %}
+
+                </div>
+
+
+
+
+            </div>
+
+          </div>
+        </div>
+
+        <hr class="my-3"/>
+
+        {{inmueble.desc|linebreaksbr}}
+
+        <hr class="my-3"/> <br>
+
+        <div id="agent-adv">
+
+          <h2 style="color: firebrick;">Agente inmobiliario:</h2><br>
+
+          <div class="row" style="text-align: center;">
+
+            <div class="col-md-4">
+              <div class="agent-photo m-spc">
+                <div class="media_agent">
+                  <img class="mr-3 agent_cropped" src="{{agent.image1.url}}" alt="image">
+                  <div class="media-body agent-details">
+                    <h5>{{agent.nombre}} {{agent.apellido}}</h5>
+                    <p>{{agent.desc}}</p>
+                    <p><span>Agente inmobiliario</span> - Asenfi inmobiliaria</p>
+                    <div class="social-links-">
+                      {% if agent.url_facebook %}<a href={{agent.url_facebook}}><i class="fab fa-facebook-square"></i> </a>{% endif %}
+                      {% if agent.url_twitter %}<a href={{agent.url_twitter}}><i class="fab fa-twitter-square"></i> </a>{% endif %}
+                      {% if agent.url_linkedin %}<a href={{agent.url_linkedin}}><i class="fab fa-linkedin"></i> </a>{% endif %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-4"><br><br>
+              <h4>Llamame al:</h4>
+              <div style="font-size: 40px;" class="v-center">
+                <div class="row">
+                  <div class="col-sm-12"><span>{{agent.telefono|phonenumber}}</span></div>
+                  <div class="col-sm-12"><span>{{agent.telefono2|phonenumber}}</span></div>
+                  <div class="col-sm-12"><span>{{agent.telefono3|phonenumber}}</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-4"><br>
+              <h4>O Escribime directamente:</h4> <br>
+              <form>
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label" for="exampleFormControlInput1">Nombre:</label>
+                  <div class="col-sm-10">
+                   <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{agent.nombre}} {{agent.apellido}}">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label" for="exampleFormControlInput1">Telefono:</label>
+                  <div class="col-sm-10">
+                   <input type="tel" class="form-control" id="exampleFormControlInput1" placeholder="{{agent.telefono|phonenumber}}">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label" for="exampleFormControlInput1">Correo:</label>
+                  <div class="col-sm-10">
+                   <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="{{agent.correo}}">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-2" for="exampleFormControlTextarea1">Mensaje:</label>
+                  <div class="col-sm-10">
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="1">Me interesa ver esta propiedad</textarea>
+                  </div>
+                </div>
+                <button class="btn btn-primary" type="submit">Enviar mensaje</button>
+              </form>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+    <!--End Hero-->
+
+
+    <!--Start Location Advantages-->
+    {% if inmueble.dest1 %}
+      <section class="feature-section pad-tb" id="location-adv">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <div class="common-heading">
+                <h2>Otros destacados de la propiedad</h2>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="about-feature">
+                <div class="row mt45">
+                  <div class="col-lg-5 ">
+                    <ul class="list-features" >
+                      {% if inmueble.dest1 %}<li>{{inmueble.dest1}}</li>{% endif %}
+                      {% if inmueble.dest2 %}<li>{{inmueble.dest2}}</li>{% endif %}
+                      {% if inmueble.dest3 %}<li>{{inmueble.dest3}}</li>{% endif %}
+                      {% if inmueble.dest4 %}<li>{{inmueble.dest4}}</li>{% endif %}
+                      {% if inmueble.dest5 %}<li>{{inmueble.dest5}}</li>{% endif %}
+                      {% if inmueble.dest6 %}<li>{{inmueble.dest6}}</li>{% endif %}
+                      {% if inmueble.dest7 %}<li>{{inmueble.dest7}}</li>{% endif %}
+                      {% if inmueble.dest8 %}<li>{{inmueble.dest8}}</li>{% endif %}
+                      {% if inmueble.dest9 %}<li>{{inmueble.dest9}}</li>{% endif %}
+                      {% if inmueble.dest10 %}<li>{{inmueble.dest10}}</li>{% endif %}
+                      {% if inmueble.dest11 %}<li>{{inmueble.dest11}}</li>{% endif %}
+                      {% if inmueble.dest12 %}<li>{{inmueble.dest12}}</li>{% endif %}
+                    </ul>
+                  </div>
+                  <div class="col-lg-7">
+                    <div class="feature-image"><img src="{{inmueble.image_condo.url}}" alt="text" class="img-fluid cropped_condo"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    {% endif %}
+    <!--End Location Advantages-->
+
+
+    <!--Start CTA-->
+    <div class="cta-section pad-tb">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="cta-heading">
+              <p>Coordinemos una visita sin compromisos!</p>
+            </div>
+          </div>
+          <div class="col-lg-4"> <a href="#agent-adv" class="cta">Contactar</a> </div>
+        </div>
+      </div>
+    </div>
+    <!--End CTA-->
+
+
+    <!--Start location-->
+    {% if inmueble.cerc1 %}
+      <section class="location-section pad-tb" id="location">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-6">
+              <div class="common-heading">
+                <h2>Ventajas de la ubicacion</h2>
+              </div>
+            </div>
+          </div>
+          <div class="row mt45">
+            <div class="col-lg-7"> {{inmueble.map|safe}}</div>
+            <div class="col-lg-5" style="text-align:center;">
+              <h4 class="h4-heading">Cercanias:</h4>
+              <ul class="loc-adlit" >
+                {% if inmueble.cerc1 %}<li>- {{inmueble.cerc1}}</li>{% endif %}
+                {% if inmueble.cerc2 %}<li>- {{inmueble.cerc2}}</li>{% endif %}
+                {% if inmueble.cerc3 %}<li>- {{inmueble.cerc3}}</li>{% endif %}
+                {% if inmueble.cerc4 %}<li>- {{inmueble.cerc4}}</li>{% endif %}
+                {% if inmueble.cerc5 %}<li>- {{inmueble.cerc5}}</li>{% endif %}
+                {% if inmueble.cerc6 %}<li>- {{inmueble.cerc6}}</li>{% endif %}
+                {% if inmueble.cerc7 %}<li>- {{inmueble.cerc7}}</li>{% endif %}
+                {% if inmueble.cerc8 %}<li>- {{inmueble.cerc8}}</li>{% endif %}
+                {% if inmueble.cerc9 %}<li>- {{inmueble.cerc9}}</li>{% endif %}
+                {% if inmueble.cerc10 %}<li>- {{inmueble.cerc10}}</li>{% endif %}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    {% endif %}
+    <!--End location-->
+
+
+
+    <!--Start Footer-->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 offset-md-1">
+            <div class="footer-">
+              <a href="javascript:void(0)"><img src="/static/core/images/common/Name red.png" alt="Logo" style="width:150px;"></a>
+            </div>
+            <p>Bienes raices y administracion de condominios</p>
+          </div>
+          <div class="col-md-6">
+            <h3>Contactanos</h3>
+            <ul class="footer-address-list">
+              <li><i class="fas fa-map-marker-alt">Av. Máximo Gómez casi esq. José Contreras, plaza Gazcue, local 511 Santo Domingo, Rep. Dom.</i></li>
+              <li><i class="fas fa-phone-alt"></i> <a href="tel:+18092213041">809-221-3041</a></li>
+              <li><i class="fas fa-envelope"></i> <a href="mailto:info@asenfi.com">info@asenfi.com</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="footer-">
+                <p>Copyright © 2020 Asenfi. All rights reserved.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!--End Footer-->
+    <!-- js placed at the end of the document so the pages load faster -->
+    <script src="/static/core/js/jquery.min.js"></script>
+    <script src="/static/core/js/jquery.validate.min.js"></script>
+    <script src="/static/core/js/bootstrap.min.js"></script>
+    <script src="/static/core/js/popper.min.js"></script>
+    <script src="/static/core/js/jquery.magnific-popup.min.js"></script>
+    <script src="/static/core/js/owl.carousel.js"></script>
+    <script src="/static/core/js/SmoothScroll.min.js"></script>
+    <!--common script file-->
+    <script src="/static/core/js/main.js"></script>
+  </body>
+</html>
