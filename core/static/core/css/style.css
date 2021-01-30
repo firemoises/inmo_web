@@ -334,6 +334,15 @@ top: -5px;}
     padding-left: 30px;
     margin-top: 10px;
 }
+
+@media only screen and (min-width: 769px) {
+	/* For pc or greater: */
+	.list-features li{
+		font-size: 19px;
+	}
+	
+  }
+
 .h4-heading{
 	font-size: 18px;
 	font-weight: 700;
@@ -414,6 +423,15 @@ border-radius: 6px;}
 	padding: 0 0 5px 0;
 	font-size: 16px;
 }
+
+@media only screen and (min-width: 769px) {
+	/* For pc or greater: */
+	.loc-adlit li{
+		font-size: 19px;
+	}
+	
+  }
+
 .loc-adlit li span {
 	list-style: none;
 	text-align: right;
@@ -728,8 +746,8 @@ text-align: center;
 @media only screen and (max-width: 768px) {
 	/* For mobile phones: */
 	.agent_cropped{
-		width: 300px; /* width of container */
-		height: 300px; /* height of container */
+		width: 200px; /* width of container */
+		height: 200px; /* height of container */
 		object-fit: cover;
 	}
   }

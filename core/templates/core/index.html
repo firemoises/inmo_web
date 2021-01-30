@@ -155,10 +155,30 @@
 
           <div class="row" style="text-align: center;">
 
-            <div class="col-md-4">
-              <div class="agent-photo m-spc">
+            <!--- FOTO DEL AGENTE SOLO EN MOBILE-->
+            <div class="col-md-4 d-sm-none">
+              <div class="">
                 <div class="media_agent">
-                  <img class="mr-3 agent_cropped" src="{{agent.image1.url}}" alt="image">
+                  <img class="agent_cropped" src="{{agent.image1.url}}" alt="image">
+                  <div class="media-body agent-details">
+                    <h5>{{agent.nombre}} {{agent.apellido}}</h5>
+                    <p>{{agent.desc}}</p>
+                    <p><span>Agente inmobiliario</span> - Asenfi inmobiliaria</p>
+                    <div class="social-links-">
+                      {% if agent.url_facebook %}<a href={{agent.url_facebook}}><i class="fab fa-facebook-square"></i> </a>{% endif %}
+                      {% if agent.url_twitter %}<a href={{agent.url_twitter}}><i class="fab fa-twitter-square"></i> </a>{% endif %}
+                      {% if agent.url_linkedin %}<a href={{agent.url_linkedin}}><i class="fab fa-linkedin"></i> </a>{% endif %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--- FOTO DEL AGENTE SOLO EN pc en adelante-->
+            <div class="col-md-4 d-none d-md-block">
+              <div class="agent-photo">
+                <div class="media_agent">
+                  <img class="agent_cropped" src="{{agent.image1.url}}" alt="image">
                   <div class="media-body agent-details">
                     <h5>{{agent.nombre}} {{agent.apellido}}</h5>
                     <p>{{agent.desc}}</p>
@@ -174,7 +194,7 @@
             </div>
 
             <div class="col-sm-4"><br><br>
-              <h4>Llamame al:</h4>
+              <h4>Llamame o escribime al:</h4>
               <div style="font-size: 40px;" class="v-center">
                 <div class="row">
                   <div class="col-sm-12"><span>{{agent.telefono|phonenumber}}</span></div>
