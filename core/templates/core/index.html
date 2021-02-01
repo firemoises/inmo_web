@@ -162,7 +162,7 @@
                   <img class="agent_cropped" src="{{agent.image1.url}}" alt="image">
                   <div class="media-body agent-details">
                     <h5>{{agent.nombre}} {{agent.apellido}}</h5>
-                    <p>{{agent.desc|multiline_break}}</p>
+                    <p>{{agent.desc|linebreaks}}</p>
                     <p><span>Agente inmobiliario</span> - Asenfi inmobiliaria</p>
                     <div class="social-links-">
                       {% if agent.url_facebook %}<a href={{agent.url_facebook}}><i class="fab fa-facebook-square"></i> </a>{% endif %}
