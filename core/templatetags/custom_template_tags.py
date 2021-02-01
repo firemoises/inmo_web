@@ -11,3 +11,10 @@ def phonenumber(value):
     return phone
 
 register.filter('phonenumber', phonenumber)
+
+
+
+def multiline_break(value):
+    return value.replace("\\n", "<br>")
+
+register.filter('multiline_break', multiline_break)
