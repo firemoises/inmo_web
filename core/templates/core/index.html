@@ -97,6 +97,10 @@
                       {% if inmueble.parqueos_techados and inmueble.parqueos > 1 %} {% setvar "techados" as techado %}
                       {% elif inmueble.parqueos_techados and inmueble.parqueos == 1 %} {% setvar "techado" as techado %}{% endif %}
 
+                      {% if inmueble.moneda_mant == "P" %} {% setvar "RD$" as simb_moneda_mant %} {% setvar "pesos" as info_moneda_mant %}
+                      {% elif inmueble.moneda_mant == "D" %} {% setvar "US$" as simb_moneda_mant %} {% setvar "dolares" as info_moneda_mant %}
+                      {% endif %}
+
                       <div class="col-sm-12"><b>Sobre el Inmueble:</b></div>
                       {% if inmueble.habs and inmueble.habs > 1 %}<div class="col-sm-12">- {{inmueble.habs}} habitaciones</div>
                       {% elif inmueble.habs and inmueble.habs == 1 %}<div class="col-sm-12">- {{inmueble.habs}} habitacion</div>{% endif %}
@@ -109,6 +113,7 @@
                       {% if inmueble.parqueos and inmueble.parqueos > 1 %}<div class="col-sm-12">- {{inmueble.parqueos}} Parqueos {{techado}}</div>
                       {% elif inmueble.parqueos and inmueble.parqueos == 1 %}<div class="col-sm-12">- {{inmueble.parqueos}} Parqueo {{techado}}</div>{% endif %}
                       {% if inmueble.terraza %}<div class="col-sm-12">- Terraza</div>{% endif %}
+                      {% if inmueble.mant %}<div class="col-sm-12">- Cuota mant: {{simb_moneda_mant}}{{inmueble.mant|floatformat|intcomma}} {{info_moneda_mant}}</div>{% endif %}
                     </div>
                   </div>
 

@@ -39,7 +39,9 @@ class Inmueble(models.Model):
     salon_actividades = models.BooleanField(verbose_name="Salon de actividades")
     area_inf = models.BooleanField(verbose_name="Area infantil")
     sauna = models.BooleanField()
-    mant = models.IntegerField(verbose_name="Cuota de mantenimiento",blank=True)
+    mant = models.IntegerField(verbose_name="Cuota de mantenimiento")
+    moneda_mant_choices = ( ('P', 'Pesos'), ('D', 'Dolares'),)
+    moneda_mant = models.CharField(max_length=1,default='P', choices=moneda_mant_choices,verbose_name="Cuota de mantenimiento")
 
     desc = models.TextField(verbose_name="Descripcion",blank=True)
 
