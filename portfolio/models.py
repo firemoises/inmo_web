@@ -4,7 +4,7 @@ from agents.models import Agent
 # Create your models here.
 class Inmueble(models.Model):
     titulo = models.CharField(max_length=200)
-    precio = models.DecimalField(max_digits=11, decimal_places=2,verbose_name="Precio")
+    precio = models.DecimalField(max_digits=11, decimal_places=2,verbose_name="Precio2")
     zona = models.CharField(max_length=100)
     prox = models.CharField(max_length=200,verbose_name="Proximo a")
     moneda_choices = ( ('P', 'Pesos'), ('D', 'Dolares'),)
