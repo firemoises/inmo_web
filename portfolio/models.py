@@ -39,8 +39,9 @@ class Inmueble(models.Model):
     salon_actividades = models.BooleanField(verbose_name="Salon de actividades")
     area_inf = models.BooleanField(verbose_name="Area infantil")
     sauna = models.BooleanField()
+    mant = models.IntegerField(verbose_name="Cuota de mantenimiento",blank=True)
 
-    desc = models.TextField(verbose_name="Descripcion")
+    desc = models.TextField(verbose_name="Descripcion",blank=True)
 
     image1 = models.ImageField(verbose_name="Imagen 1", upload_to="Inmuebles", blank=True)
     image2 = models.ImageField(verbose_name="Imagen 2", upload_to="Inmuebles", blank=True)
