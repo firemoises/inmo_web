@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '@ns&(i8wkk2$cjl#3g(*w^b&ee+v63ylrt$m07f^)ave++v@d^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["www.asenfi-inmo.com","127.0.0.1"]
 
