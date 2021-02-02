@@ -11,7 +11,7 @@ class Inmueble(models.Model):
     moneda = models.CharField(max_length=1,default='P', choices=moneda_choices)
 
     tipo_inmo_choices = ( (1, 'Apartamento'), (2, 'Casa'), (3, 'Local'), (4, 'Solar'), (5, 'Edificio'))
-    tipo_inmo = models.IntegerField(default=1, choices=tipo_inmo_choices,verbose_name="Planta electrica")
+    tipo_inmo = models.IntegerField(default=1, choices=tipo_inmo_choices,verbose_name="Tipo de inmueble")
 
     habs = models.PositiveSmallIntegerField(verbose_name="Habitaciones")
     banos = models.PositiveSmallIntegerField(verbose_name="Baños")
