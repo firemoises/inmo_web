@@ -9,6 +9,7 @@ class Agent(models.Model):
     telefono = models.PositiveIntegerField()
     telefono2 = models.PositiveIntegerField(default="8099689333")
     #telefono3 = models.PositiveIntegerField(default="8099689333")
+    testfield = models.PositiveIntegerField(default="8099689333")
 
     url_facebook = models.URLField(blank=True)
     url_twitter = models.URLField(blank=True)
