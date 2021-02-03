@@ -18,7 +18,7 @@ class Inmueble(models.Model):
     mts = models.FloatField(verbose_name="Metraje")
     parqueos = models.PositiveSmallIntegerField(verbose_name="Parqueos")
     parqueos_techados = models.BooleanField()
-    piso = models.PositiveSmallIntegerField(verbose_name="Piso")
+    piso = models.PositiveSmallIntegerField(verbose_name="Piso",blank=True)
     sala = models.BooleanField()
     comedor = models.BooleanField()
     balcon = models.BooleanField()
@@ -41,7 +41,7 @@ class Inmueble(models.Model):
     sauna = models.BooleanField()
     mant = models.IntegerField(verbose_name="Cuota de mantenimiento")
     moneda_mant_choices = ( ('P', 'Pesos'), ('D', 'Dolares'),)
-    moneda_mant = models.CharField(max_length=1,default='P', choices=moneda_mant_choices,verbose_name="Cuota de mantenimiento")
+    moneda_mant = models.CharField(max_length=1,default='P', choices=moneda_mant_choices,verbose_name="Moneda de cuota de mantenimiento")
 
     desc = models.TextField(verbose_name="Descripcion",blank=True)
 
