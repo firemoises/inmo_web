@@ -214,6 +214,8 @@
               
               {% if "ok" in request.GET %}
                 <script>alert('Mensaje enviado correctamente \n\nTan pronto el agente vea el mensaje le estara contactando')</script>
+              {% elif "fail" in request.GET %}
+                <script>alert('Algo salio mal, \n\nMensaje no enviado')</script>
               {% endif %}
 
               <form action="" method="POST">
