@@ -211,29 +211,36 @@
 
             <div class="col-sm-4"><br>
               <h4>O Escribime directamente:</h4> <br>
-              <form>
+              
+              {% if "ok" in request.GET %}
+                <script>alert('Mensaje enviado correctamente \n\nTan pronto el agente vea el mensaje le estara contactando')</script>
+              {% endif %}
+
+              <form action="" method="POST">
+                {% csrf_token %}
+
                 <div class="form-group row">
                   <label class="col-sm-2 col-form-label" for="exampleFormControlInput1">Nombre:</label>
                   <div class="col-sm-10">
-                   <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{agent.nombre}} {{agent.apellido}}">
+                    {{form.nombre}}
                   </div>
                 </div>
                 <div class="form-group row">
                   <label class="col-sm-2 col-form-label" for="exampleFormControlInput1">Telefono:</label>
                   <div class="col-sm-10">
-                   <input type="tel" class="form-control" id="exampleFormControlInput1" placeholder="{{agent.telefono|phonenumber}}">
+                    {{form.telefono}}
                   </div>
                 </div>
                 <div class="form-group row">
                   <label class="col-sm-2 col-form-label" for="exampleFormControlInput1">Correo:</label>
                   <div class="col-sm-10">
-                   <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="{{agent.correo}}">
+                    {{form.correo}}
                   </div>
                 </div>
                 <div class="form-group row">
                   <label class="col-sm-2" for="exampleFormControlTextarea1">Mensaje:</label>
                   <div class="col-sm-10">
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="1">Me interesa ver esta propiedad</textarea>
+                    {{form.mensaje}}
                   </div>
                 </div>
                 <button class="btn btn-primary" type="submit">Enviar mensaje</button>
