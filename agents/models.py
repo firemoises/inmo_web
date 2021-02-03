@@ -7,8 +7,8 @@ class Agent(models.Model):
     correo = models.EmailField(max_length=100)
     correo2 = models.EmailField(max_length=100, blank=True)
     telefono = models.PositiveIntegerField()
-    telefono2 = models.PositiveIntegerField(default="8092213041")
-    telefono3 = models.PositiveIntegerField(default="8099689333")
+    telefono2 = models.PositiveIntegerField(default="8099689333")
+    #telefono3 = models.PositiveIntegerField(default="8099689333")
 
     url_facebook = models.URLField(blank=True)
     url_twitter = models.URLField(blank=True)
