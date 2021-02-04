@@ -3,6 +3,9 @@ from agents.models import Agent
 
 # Create your models here.
 class Inmueble(models.Model):
+    estado_choices = ( (1, 'Activada'), (0, 'Desactivada'),)
+    estado = models.PositiveSmallIntegerField(default=1, choices=estado_choices)
+    
     titulo = models.CharField(max_length=200)
     precio = models.DecimalField(max_digits=11, decimal_places=2,verbose_name="Precio")
     zona = models.CharField(max_length=100)

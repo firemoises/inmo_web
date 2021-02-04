@@ -15,6 +15,7 @@ def portfolio(request,portfolio_id):
     agent = Agent.objects.get(id=inmueble.agente_id)
     contact_form = ContactForm()
 
+    ### Formulario
     if request.method == "POST":
         contact_form = ContactForm(data=request.POST) #Si el formulario fue enviado lo llenamos
 
@@ -45,5 +46,6 @@ def portfolio(request,portfolio_id):
                 #Si algo salio mal
                 return redirect(f'/portfolio/{portfolio_id}/?fail')
 
-    return render(request,"core/index.html",{"inmueble":inmueble,"agent":agent,"form":contact_form})
+    if inmueble.estado == 1:
+        return render(request,"core/index.html",{"inmueble":inmueble,"agent":agent,"form":contact_form})
 
