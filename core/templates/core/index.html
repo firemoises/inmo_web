@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!--website title-->
-    <title>Asenfi inmobiliaria - Bienes raices</title>
-
     {% load static %}
     {% load custom_template_tags %}
     {% load humanize %}
 
+    {% if inmueble.moneda == "P" %} {% setvar "RD$" as simb_moneda %} {% setvar "pesos" as info_moneda %}
+    {% elif inmueble.moneda == "D" %} {% setvar "US$" as simb_moneda %} {% setvar "dolares" as info_moneda %}
+    {% endif %}
+
+    <!--website title-->
+    <title>{{inmueble.titulo}}</title>
+
     <!--seo-meta-tag-->
     <meta charset="UTF-8">
-    <meta name="description" content="real estate, landing page, one page">
-    <meta name="keywords" content="real estate, landing page, one page">
+    <meta name="description" content="{{inmueble.zona}}, {{simb_moneda}}{{inmueble.precio|floatformat|intcomma}}, {{inmueble.habs}} hab">
+    <meta name="keywords" content="Bienes raices, propiedades, inmobiliaria, {{inmueble.zona}}, {{inmueble.habs}} hab">
     <meta name="author" content="rajesh-doot">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -78,9 +82,6 @@
 
                 <hr class="my-3"/>
 
-                {% if inmueble.moneda == "P" %} {% setvar "RD$" as simb_moneda %} {% setvar "pesos" as info_moneda %}
-                {% elif inmueble.moneda == "D" %} {% setvar "US$" as simb_moneda %} {% setvar "dolares" as info_moneda %}
-                {% endif %}
 
                 <ul>
                   <li><b>Codigo:</b> {{inmueble.id}}</li>
