@@ -51,7 +51,7 @@ def portfolio(request,portfolio_id):
 
 
     """
-    #prueba22
+    #prueba333
     def perfil(request,agente_id):
 
     agent = Agent.objects.get(id=agente_id)
