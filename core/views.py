@@ -51,6 +51,7 @@ def portfolio(request,portfolio_id):
 
 
     """
+    #prueba
     def perfil(request,agente_id):
 
     agent = Agent.objects.get(id=agente_id)
