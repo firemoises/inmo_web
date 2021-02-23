@@ -23,6 +23,7 @@ from django.conf import settings # Para traernos las variables de settings
 urlpatterns = [
     path('', views.home, name="home"),
     path('portfolio/<int:portfolio_id>/', views.portfolio, name="portfolio"),
+    path('agents/<int:agents_id>/', views.agents, name="agents"),
     path('admin/', admin.site.urls),
 ]
 

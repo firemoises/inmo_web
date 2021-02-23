@@ -8,10 +8,11 @@ class Agent(models.Model):
     correo2 = models.EmailField(max_length=100, blank=True)
     telefono = models.PositiveIntegerField()
     telefono2 = models.PositiveIntegerField(default="8099689333")
+    zona_operacion = models.CharField(max_length=300)
     #telefono3 = models.PositiveIntegerField(default="8099689333")
 
     url_facebook = models.URLField(blank=True)
-    url_twitter = models.URLField(blank=True)
+    url_twitter = models.URLField(blank=True) 
     url_instagram = models.URLField(blank=True)
     url_linkedin = models.URLField(blank=True)
     url_youtube = models.URLField(blank=True)

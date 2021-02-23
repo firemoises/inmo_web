@@ -50,12 +50,8 @@ def portfolio(request,portfolio_id):
         return render(request,"core/index.html",{"inmueble":inmueble,"agent":agent,"form":contact_form})
 
 
-    """
-    #prueba333
-    def perfil(request,agente_id):
-
-    agent = Agent.objects.get(id=agente_id)
+def agents(request,agents_id):
+    agent = Agent.objects.get(id=agents_id)
     inmuebles = Inmueble.objects.get(agente=agent.id,estado=1) #Inmueble.objects.all().filter(id=portfolio_id)
    
-    return render(request,"core/perfil.html",{"inmuebles":inmuebles,"agent":agent})
-    """
+    return render(request,"core/agents.html",{"inmuebles":inmuebles,"agent":agent})
