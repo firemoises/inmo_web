@@ -16,128 +16,128 @@
     </head>
     <body data-spy="scroll" data-target=".navbar" data-offset="100">
       
+      <br/>
+
+      <span style="color: firebrick;" 
+      class="lead text-center my-4">
+      <h3> Perfil de agente inmobiliario </h3>
+      </span>
+
+      <hr class="my-3"/> <br>
+
+      
       <!--Start Hero section-->
-       <section class="hero-section" id="home">
-
-        <span style="color: firebrick;" 
-            class="lead text-center my-4">
-            <h3> Perfil de agente inmobiliario </h3>
-        </span>
-
-
-        <div class="text-block">
+      <section class="hero-section" id="home" style="margin-top: -10%;">
           
 
-          <hr class="my-3"/>
+         <div class="text-block">
+            <div class="container">
 
-          {{inmueble.desc|linebreaksbr}}
+                <!--<div class="col-lg-6">-->
+                <div class="row" style="text-align: left;">
 
-          <hr class="my-3"/> <br>
+                      <!--------------------------------------------------------------------------------------->
+                      <!--- FOTO DEL AGENTE SOLO EN MOBILE-->
+                    
+                      <div class="col-md-4 d-md-none" style="margin-top: 5%;">
 
-          <div id="agent-adv">
-
-            <div class="row" style="text-align: left;">
-
-
-              <!--- FOTO DEL AGENTE SOLO EN MOBILE-->
-                
-                <div class="col-md-4 d-md-none">
-                  <div class="">
-                    <div class="agent-photo">
-                      <div class="media_agent">
-                        
-                          <img class="agent_cropped" 
-                               src="{{agent.image1.url}}" 
-                               alt="image"
-                               style=" background-repeat: no-repeat;
-                                       background-position: 50%;
-                                       width: 50%;
-                                       height: 50%;
-                                       border-radius: 50%;
-                                       background-size: 50% auto;">
-                  
-                        <div class="media-body agent-details"> 
-                          <p><h3><i class="fa fa-star fa-lg fa-spin"></i> 1 propiedades</h3></p><hr>
-  
-                          <h4>Contacto</h4><br>
-                          <ul style="margin-left:0px;">
-  
-                            <li><i class="fas fa-check"></i> {{ agent.telefono }}</li>
-                            {% if agent.telefono2 != "" %}<li><i class="fas fa-check"></i>{{agent.telefono2}}</li>{% endif %}
-                            <li><i class="fas fa-check"></i> {{ agent.correo }}</li>
-                            {% if agent.correo2 != "" %}<li><i class="fas fa-check"></i>{{agent.correo2}}</li>{% endif %}
-                            <li>{% if agent.url_facebook %}<a href={{agent.url_facebook}}><i class="fab fa-facebook-square"></i> </a>{% endif %}</li>
-                            <li>{% if agent.url_twitter %}<a href={{agent.url_twitter}}><i class="fab fa-twitter-square"></i> </a>{% endif %}</li>
-                            <li>{% if agent.url_linkedin %}<a href={{agent.url_linkedin}}><i class="fab fa-linkedin"></i> </a>{% endif %}</li>
-  
-                          </ul>
-  
-                        </div>
-                      </div>
-                    </div>
-                    </div>
-                 </div>
-                
-
-              <!--- FOTO DEL AGENTE SOLO EN pc en adelante-->
+                          <div class="agent-photo">
+                                <div class="media_agent">
+                                
+                                    <img class="agent_cropped" 
+                                        src="{{agent.image1.url}}" 
+                                        alt="image"
+                                        style=" background-repeat: no-repeat;
+                                                background-position: 50%;
+                                                width: 45%;
+                                                height: 35%;
+                                                border-radius: 50%;
+                                                background-size: 50% auto;">
+                          
+                                    <div class="media-body agent-details"> 
+                                      <p><h3><i class="fa fa-star fa-lg fa-spin"></i> 1 propiedades</h3></p><hr>
               
-                <div class="col-md-4 d-none d-md-block"
-                     style="left:10%;">
-                  <div class="agent-photo">
-                    <div class="media_agent">
-                      
-                      
-                        <img class="agent_cropped" 
-                             src="{{agent.image1.url}}" 
-                             alt="image"
-                             style=" background-repeat: no-repeat;
-                                     background-position: 50%;
-                                     border-radius: 50%;
-                                     background-size: 100% auto;">
-                
-                      <div class="media-body agent-details">
-                        <p><h3><i class="fa fa-star fa-lg fa-spin"></i> 1 propiedades</h3></p><hr>
+                                      <h4>Contacto</h4><br>
+                                      <ul style="margin-left:0px;">
+              
+                                        <li><i class="fas fa-check"></i> {{ agent.telefono }}</li>
+                                        {% if agent.telefono2 != "" %}<li><i class="fas fa-check"></i>{{agent.telefono2}}</li>{% endif %}
+                                        <li><i class="fas fa-check"></i> {{ agent.correo }}</li>
+                                        {% if agent.correo2 != "" %}<li><i class="fas fa-check"></i>{{agent.correo2}}</li>{% endif %}
+                                        <li>{% if agent.url_facebook %}<a href={{agent.url_facebook}}><i class="fab fa-facebook-square"></i> </a>{% endif %}</li>
+                                        <li>{% if agent.url_twitter %}<a href={{agent.url_twitter}}><i class="fab fa-twitter-square"></i> </a>{% endif %}</li>
+                                        <li>{% if agent.url_linkedin %}<a href={{agent.url_linkedin}}><i class="fab fa-linkedin"></i> </a>{% endif %}</li>
+              
+                                      </ul>
+                                    </div>
 
-                        <h4>Contacto</h4><br>
-                        <ul style="margin-left:0px;">
-
-                          <li><i class="fas fa-check"></i> {{ agent.telefono }}</li>
-                          {% if agent.telefono2 != "" %}<li><i class="fas fa-check"></i>{{agent.telefono2}}</li>{% endif %}
-                          <li><i class="fas fa-check"></i> {{ agent.correo }}</li>
-                          {% if agent.correo2 != "" %}<li><i class="fas fa-check"></i>{{agent.correo2}}</li>{% endif %}
-                          <li>{% if agent.url_facebook %}<a href={{agent.url_facebook}}><i class="fab fa-facebook-square"></i> </a>{% endif %}</li>
-                          <li>{% if agent.url_twitter %}<a href={{agent.url_twitter}}><i class="fab fa-twitter-square"></i> </a>{% endif %}</li>
-                          <li>{% if agent.url_linkedin %}<a href={{agent.url_linkedin}}><i class="fab fa-linkedin"></i> </a>{% endif %}</li>
-
-                        </ul>
-
+                                </div>
+                          </div>
                       </div>
-                    </div>
-                  </div>
+                      
+
+                      <!--- FOTO DEL AGENTE SOLO EN pc en adelante-->
+                    
+                      <div class="col-md-4 d-none d-md-block" style="margin-top: 5%;">
+                          <div class="agent-photo">
+                              <div class="media_agent">
+                                
+                                
+                                  <img class="agent_cropped" 
+                                      src="{{agent.image1.url}}" 
+                                      alt="image"
+                                      style=" background-repeat: no-repeat;
+                                              background-position: 50%;
+                                              border-radius: 50%;
+                                              background-size: 100% auto;">
+                          
+                                  <div class="media-body agent-details">
+                                    <p><h3><i class="fa fa-star fa-lg fa-spin"></i> 1 propiedades</h3></p><hr>
+
+                                    <h4>Contacto</h4><br>
+                                    <ul style="margin-left:0px;">
+
+                                      <li><i class="fas fa-check"></i> {{ agent.telefono }}</li>
+                                      {% if agent.telefono2 != "" %}<li><i class="fas fa-check"></i>{{agent.telefono2}}</li>{% endif %}
+                                      <li><i class="fas fa-check"></i> {{ agent.correo }}</li>
+                                      {% if agent.correo2 != "" %}<li><i class="fas fa-check"></i>{{agent.correo2}}</li>{% endif %}
+                                      <li>{% if agent.url_facebook %}<a href={{agent.url_facebook}}><i class="fab fa-facebook-square"></i> </a>{% endif %}</li>
+                                      <li>{% if agent.url_twitter %}<a href={{agent.url_twitter}}><i class="fab fa-twitter-square"></i> </a>{% endif %}</li>
+                                      <li>{% if agent.url_linkedin %}<a href={{agent.url_linkedin}}><i class="fab fa-linkedin"></i> </a>{% endif %}</li>
+
+                                    </ul>
+
+                                  </div>
+                              </div>
+                          </div>
+                        </div>
+                        <!--------------------------------------------------------------------------------------->
+
+                        <br>
+                        <div class="col-md-6 d-md-block">
+                            <div style="margin-top: 10%; width: 100%;"> 
+                                <h3> {{agent.nombre}} {{agent.apellido}} </h3>
+                                <span>Se registró en {{agent.created}}</span><br><br>
+                                <p><h3>Acerca de:</h3><br>{{agent.desc|linebreaks}}</p><br>
+                                <p><i class="fas fa-home"></i> &nbsp; Zona donde opera: {{ agent.zona_operacion }}</p><br>
+                                <p><span>Agente inmobiliario</span> - Asenfi inmobiliaria</p><br>
+
+                                <h4>Propiedades de {{ agent.nombre }} {{ agent.apellido }}</h4><br>
+
+                                <p class="container"><img src="{{inmuebles.image1.url}}" 
+                                                          alt="text" 
+                                                          class="img-fluid cropped"
+                                                          style="width: 50%; height: 20%;"></p><br>
+                                
+                                <p><i class="fa fa-star fa-lg fa-spin" style="color:red;"></i> &nbsp; <b>PRECIO</b> {{ inmuebles.precio }}</p>
+                                <p><i class="fas fa-align-justify"></i> &nbsp; &nbsp; <b>TÍTULO</b>  {{ inmuebles.titulo }}</p>
+
+                            </div>
+                        </div>
+
                 </div>
-
-            </div><br>
-            <div style="margin-left: 20%; width: 50%;"> 
-                <h3> {{agent.nombre}} {{agent.apellido}} </h3>
-                <span>Se registró en {{agent.created}}</span><br><br>
-                <p><h3>Acerca de:</h3><br>{{agent.desc|linebreaks}}</p><br>
-                <p><i class="fas fa-home"></i> &nbsp; Zona donde opera: {{ agent.zona_operacion }}</p><br>
-                <p><span>Agente inmobiliario</span> - Asenfi inmobiliaria</p><br>
-
-                <h4>Propiedades de {{ agent.nombre }} {{ agent.apellido }}</h4><br>
-
-                <p class="container"><img src="{{inmuebles.image1.url}}" 
-                                          alt="text" 
-                                          class="img-fluid cropped"
-                                          style="width: 20%; height: 20%;"></p><br>
-                
-                <p><i class="fa fa-star fa-lg fa-spin"></i> &nbsp; <b>PRECIO</b> {{ inmuebles.precio }}</p>
-                <p><i class="fas fa-align-justify"></i> &nbsp; &nbsp; <b>TÍTULO</b>  {{ inmuebles.titulo }}</p>
-
-            </div>
+             </div>
           </div>
-
-        </div>
       </section>
       <!--End Hero section-->
 
