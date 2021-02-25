@@ -67,7 +67,7 @@
                 </div>
               </div>
 
-              <div class="col-lg-6">
+            <div class="col-lg-6">
 
               <div class="header-heading">
 
@@ -208,7 +208,17 @@
                 <h4>O Escribime directamente:</h4> <br>
                 
                 {% if "ok" in request.GET %}
-                  <script>alert('Mensaje enviado correctamente \n\nTan pronto el agente vea el mensaje le estara contactando')</script>
+                  <!--<script>alert('Mensaje enviado correctamente \n\nTan pronto el agente vea el mensaje le estara contactando')</script>-->
+                  <script>
+                          Swal.fire({
+                            icon: 'success',
+                            title: 'Mensaje enviado correctamente',
+                            text: "Tan pronto el agente vea el mensaje le estará contactando.",
+                            showConfirmButton: true,
+                            
+                          })
+
+                  </script>
                 {% elif "fail" in request.GET %}
                   <script>alert('Algo salio mal, \n\nMensaje no enviado')</script>
                 {% endif %}
