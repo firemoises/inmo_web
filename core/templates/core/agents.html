@@ -13,25 +13,32 @@
       <!--website title-->
       <title>inmo_web - {{ agent.nombre }}</title>
 
+      <meta name="description" content="{{inmuebles.zona}}, {{simb_moneda}}{{inmuebles.precio|floatformat|intcomma}}, {{inmuebles.habs}} hab">
+      <meta name="keywords" content="Bienes raices, propiedades, inmobiliaria, {{inmuebles.zona}}, {{inmuebles.habs}} hab">
+
     </head>
     <body data-spy="scroll" data-target=".navbar" data-offset="100">
       
       <br/>
 
-      <span style="color: firebrick;" 
-      class="lead text-center my-4">
-      <h3> Perfil de agente inmobiliario </h3>
-      </span>
-
-      <hr class="my-3"/> <br>
-
+      <!--Start Header -->
+      <header class="top-header">
+        <nav class="navbar navbar-expand-lg navbar-light justify-content-between navbar-mobile fixed-top">
+          <div class="container">
+            <a class="navbar-brand" href="#"> <img src="/static/core/images/common/Name black red.png" alt="Logo" width="200"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar4" aria-controls="navbar4" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+          </div>
+        </nav>
+      </header>
+      <!--End Header -->
+      <br/>
       
       <!--Start Hero section-->
-      <section class="hero-section" id="home" style="margin-top: -10%;">
+      <section class="hero-section" id="home" style="margin-top: -7%;">
           
 
          <div class="text-block">
-            <div class="container">
+            <div class="container" style="width: 100%;">
 
                 <!--<div class="col-lg-6">-->
                 <div class="row" style="text-align: left;">
@@ -54,8 +61,9 @@
                                                 border-radius: 50%;
                                                 background-size: 50% auto;">
                           
-                                    <div class="media-body agent-details"> 
-                                      <p><h3><i class="fa fa-star fa-lg fa-spin"></i> 1 propiedades</h3></p><hr>
+                                    <div class="media-body agent-details">
+                                      <!--<i class="fa fa-star fa-lg fa-spin"></i> Esta estrella da vueltas-->
+                                      <p><h3>&#10027; 1 propiedades</h3></p><hr>
               
                                       <h4>Contacto</h4><br>
                                       <ul style="margin-left:0px;">
@@ -64,11 +72,15 @@
                                         {% if agent.telefono2 != "" %}<li><i class="fas fa-check"></i>{{agent.telefono2}}</li>{% endif %}
                                         <li><i class="fas fa-check"></i> {{ agent.correo }}</li>
                                         {% if agent.correo2 != "" %}<li><i class="fas fa-check"></i>{{agent.correo2}}</li>{% endif %}
-                                        <li>{% if agent.url_facebook %}<a href={{agent.url_facebook}}><i class="fab fa-facebook-square"></i> </a>{% endif %}</li>
-                                        <li>{% if agent.url_twitter %}<a href={{agent.url_twitter}}><i class="fab fa-twitter-square"></i> </a>{% endif %}</li>
-                                        <li>{% if agent.url_linkedin %}<a href={{agent.url_linkedin}}><i class="fab fa-linkedin"></i> </a>{% endif %}</li>
-              
+
                                       </ul>
+
+                                      <span>{% if agent.url_facebook %}<a href={{agent.url_facebook}}><i class="fab fa-facebook-square"></i> </a>{% endif %}</span>
+                                      <span>{% if agent.url_twitter %}<a href={{agent.url_twitter}}><i class="fab fa-twitter-square"></i> </a>{% endif %}</span>
+                                      <span>{% if agent.url_linkedin %}<a href={{agent.url_linkedin}}><i class="fab fa-linkedin"></i> </a>{% endif %}</span>
+                                      <span>{% if agent.url_youtube %}<a href={{agent.url_youtube}}><i class="fab fa-youtube"></i> </a>{% endif %}</span>
+                                      <span>{% if agent.url_instagram %}<a href={{agent.url_instagram}}><i class="fab fa-instagram-square"></i></a>{% endif %}</span>
+  
                                     </div>
 
                                 </div>
@@ -78,7 +90,7 @@
 
                       <!--- FOTO DEL AGENTE SOLO EN pc en adelante-->
                     
-                      <div class="col-md-4 d-none d-md-block" style="margin-top: 5%;">
+                      <div class="col-md-4 d-none d-md-block" style="margin-top:5%; ">
                           <div class="agent-photo">
                               <div class="media_agent">
                                 
@@ -92,7 +104,8 @@
                                               background-size: 100% auto;">
                           
                                   <div class="media-body agent-details">
-                                    <p><h3><i class="fa fa-star fa-lg fa-spin"></i> 1 propiedades</h3></p><hr>
+                                      <!--<i class="fa fa-star fa-lg fa-spin"></i> Esta estrella da vueltas-->
+                                      <p><h3><span style="font-size: 35px;" >&#10027;</span> 1 propiedades</h3></p><hr>
 
                                     <h4>Contacto</h4><br>
                                     <ul style="margin-left:0px;">
@@ -101,21 +114,26 @@
                                       {% if agent.telefono2 != "" %}<li><i class="fas fa-check"></i>{{agent.telefono2}}</li>{% endif %}
                                       <li><i class="fas fa-check"></i> {{ agent.correo }}</li>
                                       {% if agent.correo2 != "" %}<li><i class="fas fa-check"></i>{{agent.correo2}}</li>{% endif %}
-                                      <li>{% if agent.url_facebook %}<a href={{agent.url_facebook}}><i class="fab fa-facebook-square"></i> </a>{% endif %}</li>
-                                      <li>{% if agent.url_twitter %}<a href={{agent.url_twitter}}><i class="fab fa-twitter-square"></i> </a>{% endif %}</li>
-                                      <li>{% if agent.url_linkedin %}<a href={{agent.url_linkedin}}><i class="fab fa-linkedin"></i> </a>{% endif %}</li>
 
                                     </ul>
+
+                                    <span>{% if agent.url_facebook %}<a href={{agent.url_facebook}}><i class="fab fa-facebook-square"></i> </a>{% endif %}</span>
+                                    <span>{% if agent.url_twitter %}<a href={{agent.url_twitter}}><i class="fab fa-twitter-square"></i> </a>{% endif %}</span>
+                                    <span>{% if agent.url_linkedin %}<a href={{agent.url_linkedin}}><i class="fab fa-linkedin"></i> </a>{% endif %}</span>
+                                    <span>{% if agent.url_youtube %}<a href={{agent.url_youtube}}><i class="fab fa-youtube"></i> </a>{% endif %}</span>
+                                    <span>{% if agent.url_instagram %}<a href={{agent.url_instagram}}><i class="fab fa-instagram-square"></i></a>{% endif %}</span>
 
                                   </div>
                               </div>
                           </div>
                         </div>
                         <!--------------------------------------------------------------------------------------->
+                      
+                      <div class="col-md-1 d-none d-md-block" ></div>
 
                         <br>
-                        <div class="col-md-6 d-md-block">
-                            <div style="margin-top: 10%; width: 100%;"> 
+                        <div class="col-md-7 d-md-block" >
+                            <div style="margin-top: 10%; width: 100%; "> 
                                 <h3> {{agent.nombre}} {{agent.apellido}} </h3>
                                 <span>Se registró en {{agent.created}}</span><br><br>
                                 <p><h3>Acerca de:</h3><br>{{agent.desc|linebreaks}}</p><br>
@@ -124,13 +142,38 @@
 
                                 <h4>Propiedades de {{ agent.nombre }} {{ agent.apellido }}</h4><br>
 
-                                <p class="container"><img src="{{inmuebles.image1.url}}" 
-                                                          alt="text" 
-                                                          class="img-fluid cropped"
-                                                          style="width: 50%; height: 20%;"></p><br>
-                                
-                                <p><i class="fa fa-star fa-lg fa-spin" style="color:red;"></i> &nbsp; <b>PRECIO</b> {{ inmuebles.precio }}</p>
-                                <p><i class="fas fa-align-justify"></i> &nbsp; &nbsp; <b>TÍTULO</b>  {{ inmuebles.titulo }}</p>
+                                <div style="  display: flex;
+                                              flex-wrap: wrap;
+
+                                              align-content: space-between;">
+
+                                {% for inmueble in inmuebles %}
+
+                                  <div class='container' style="width: 50%; 
+                                                                height: 10%;
+                                                                border-radius: 25px;
+                                                                border-color: black; ">
+
+                                      {% if inmueble.moneda == "P" %} {% setvar "RD$" as simb_moneda %} {% setvar "pesos" as info_moneda %}
+                                      {% elif inmueble.moneda == "D" %} {% setvar "US$" as simb_moneda %} {% setvar "dólares" as info_moneda %}
+                                      {% endif %}
+                                      
+
+                                      <img src="{{inmueble.image1.url}}"
+                                           alt="text" 
+                                           class="img-fluid cropped"
+                                           style="width: 100%; height: 200px;"><br>
+                                      
+                                      <!---Estrella giratoria de color rojo-->                          
+                                      <!--<i class="fa fa-star fa-lg fa-spin" style="color:red;"></i>--->  
+                                      <p><span style="font-size: 20px; color:red;" >&#9733;</span>&nbsp; {{simb_moneda}}{{inmueble.precio|floatformat|intcomma}} {{info_moneda}}</p>
+                                      <p><i class="fas fa-align-justify"></i> &nbsp; &nbsp;  {{ inmueble.titulo }}</p>
+                                    
+                                  </div>
+
+                                {% endfor %}
+
+                                </div>
 
                             </div>
                         </div>

@@ -52,6 +52,6 @@ def portfolio(request,portfolio_id):
 
 def agents(request,agents_id):
     agent = Agent.objects.get(id=agents_id)
-    inmuebles = Inmueble.objects.get(agente=agent.id,estado=1) #Inmueble.objects.all().filter(id=portfolio_id)
+    inmuebles = Inmueble.objects.filter(agente=agent.id,estado=1) #Inmueble.objects.all().filter(id=portfolio_id)
    
     return render(request,"core/agents.html",{"inmuebles":inmuebles,"agent":agent})
