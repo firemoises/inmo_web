@@ -7,6 +7,7 @@
       {% load static %}
       {% load custom_template_tags %}
       {% load humanize %}
+      
 
       {% block content %}
 
@@ -105,7 +106,7 @@
                           
                                   <div class="media-body agent-details">
                                       <!--<i class="fa fa-star fa-lg fa-spin"></i> Esta estrella da vueltas-->
-                                      <p><h3><span style="font-size: 35px;" >&#10027;</span> 1 propiedades</h3></p><hr>
+                                      <p><h3><span style="font-size: 35px;" >&#10027;</span> {{contador}} propiedades</h3></p><hr>
 
                                     <h4>Contacto</h4><br>
                                     <ul style="margin-left:0px;">

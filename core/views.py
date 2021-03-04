@@ -53,5 +53,6 @@ def portfolio(request,portfolio_id):
 def agents(request,agents_id):
     agent = Agent.objects.get(id=agents_id)
     inmuebles = Inmueble.objects.filter(agente=agent.id,estado=1) #Inmueble.objects.all().filter(id=portfolio_id)
+    contador  =  inmuebles.all().count()
    
-    return render(request,"core/agents.html",{"inmuebles":inmuebles,"agent":agent})
+    return render(request,"core/agents.html",{"inmuebles":inmuebles,"agent":agent, "contador":contador})
