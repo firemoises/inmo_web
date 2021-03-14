@@ -1,7 +1,7 @@
 {% extends 'core/base.html' %} <!--Para heredar el base.html-->
 
 <!DOCTYPE html>
-  <html lang="en">
+<html lang="en">
     <head>
 
       {% load static %}
@@ -18,184 +18,324 @@
       <meta name="keywords" content="Bienes raices, propiedades, inmobiliaria, {{inmuebles.zona}}, {{inmuebles.habs}} hab">
 
     </head>
+
     <body data-spy="scroll" data-target=".navbar" data-offset="100">
       
-      <br/>
+        <br/>
 
-      <!--Start Header -->
-      <header class="top-header">
-        <nav class="navbar navbar-expand-lg navbar-light justify-content-between navbar-mobile fixed-top">
-          <div class="container">
-            <a class="navbar-brand" href="#"> <img src="/static/core/images/common/Name black red.png" alt="Logo" width="200"></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar4" aria-controls="navbar4" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-          </div>
-        </nav>
-      </header>
-      <!--End Header -->
-      <br/>
-      
-      <!--Start Hero section-->
-      <section class="hero-section" id="home" style="margin-top: -7%;">
-          
+        <!--Start Header -->
+        <header class="top-header" >
+            <nav class="navbar navbar-expand-lg navbar-light justify-content-between navbar-mobile fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="#"> <img src="/static/core/images/common/Name black red.png" alt="Logo" width="200"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar4" aria-controls="navbar4" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            </div>
+            </nav>
+        </header>
+        <!--End Header -->
+        <br/>
 
-         <div class="text-block">
-            <div class="container" style="width: 100%;">
 
-                <!--<div class="col-lg-6">-->
-                <div class="row" style="text-align: left;">
+        
+        <!--Start Hero section-->
+        <section class="hero-section" id="home" style="margin-top: -7%;">
+            
 
-                      <!--------------------------------------------------------------------------------------->
-                      <!--- FOTO DEL AGENTE SOLO EN MOBILE-->
-                    
-                      <div class="col-md-4 d-md-none" style="margin-top: 5%;">
+            <div class="text-block">
+                <div class="container" style="width: 100%;">
 
-                          <div class="agent-photo">
+                    <!--<div class="col-lg-6">-->
+                    <div class="row" style="text-align: left;">
+
+                        <!--------------------------------------------------------------------------------------->
+                        <!--- FOTO DEL AGENTE SOLO EN MOBILE-->
+                        
+                        <div class="col-md-4 d-md-none" style="margin-top: 5%;">
+
+                            <div class="agent-photo">
+                                    <div class="media_agent">
+                                    
+                                        <img class="agent_cropped" 
+                                            src="{{agent.image1.url}}" 
+                                            alt="image"
+                                            style=" background-repeat: no-repeat;
+                                                    background-position: 50%;
+                                                    width: 45%;
+                                                    height: 35%;
+                                                    border-radius: 50%;
+                                                    background-size: 50% auto;">
+                            
+                                        <div class="media-body agent-details">
+                                        <!--<i class="fa fa-star fa-lg fa-spin"></i> Esta estrella da vueltas-->
+                                        <p><h3>&#10027; 1 propiedades</h3></p><hr>
+                
+                                        <h4>Contacto</h4><br>
+                                        <ul style="margin-left:0px;">
+                
+                                            <li><i class="fas fa-check"></i> {{ agent.telefono }}</li>
+                                            {% if agent.telefono2 != "" %}<li><i class="fas fa-check"></i>{{agent.telefono2}}</li>{% endif %}
+                                            <li><i class="fas fa-check"></i> {{ agent.correo }}</li>
+                                            {% if agent.correo2 != "" %}<li><i class="fas fa-check"></i>{{agent.correo2}}</li>{% endif %}
+
+                                        </ul>
+
+                                        <span>{% if agent.url_facebook %}<a href={{agent.url_facebook}}><i class="fab fa-facebook-square"></i> </a>{% endif %}</span>
+                                        <span>{% if agent.url_twitter %}<a href={{agent.url_twitter}}><i class="fab fa-twitter-square"></i> </a>{% endif %}</span>
+                                        <span>{% if agent.url_linkedin %}<a href={{agent.url_linkedin}}><i class="fab fa-linkedin"></i> </a>{% endif %}</span>
+                                        <span>{% if agent.url_youtube %}<a href={{agent.url_youtube}}><i class="fab fa-youtube"></i> </a>{% endif %}</span>
+                                        <span>{% if agent.url_instagram %}<a href={{agent.url_instagram}}><i class="fab fa-instagram-square"></i></a>{% endif %}</span>
+    
+                                        </div>
+
+                                    </div>
+                            </div>
+                        </div>
+                        
+
+                        <!--- FOTO DEL AGENTE SOLO EN pc en adelante-->
+                        
+                        <div class="col-md-4 d-none d-md-block" style="margin-top:5%; ">
+                            <div class="agent-photo">
                                 <div class="media_agent">
-                                
+                                    
+                                    
                                     <img class="agent_cropped" 
                                         src="{{agent.image1.url}}" 
                                         alt="image"
                                         style=" background-repeat: no-repeat;
                                                 background-position: 50%;
-                                                width: 45%;
-                                                height: 35%;
                                                 border-radius: 50%;
-                                                background-size: 50% auto;">
-                          
+                                                background-size: 100% auto;">
+                            
                                     <div class="media-body agent-details">
-                                      <!--<i class="fa fa-star fa-lg fa-spin"></i> Esta estrella da vueltas-->
-                                      <p><h3>&#10027; 1 propiedades</h3></p><hr>
-              
-                                      <h4>Contacto</h4><br>
-                                      <ul style="margin-left:0px;">
-              
+                                        <!--<i class="fa fa-star fa-lg fa-spin"></i> Esta estrella da vueltas-->
+                                        <p><h3><span style="font-size: 35px;" >&#10027;</span> {{contador}} propiedades</h3></p><hr>
+
+                                        <h4>Contacto</h4><br>
+                                        <ul style="margin-left:0px;">
+
                                         <li><i class="fas fa-check"></i> {{ agent.telefono }}</li>
                                         {% if agent.telefono2 != "" %}<li><i class="fas fa-check"></i>{{agent.telefono2}}</li>{% endif %}
                                         <li><i class="fas fa-check"></i> {{ agent.correo }}</li>
                                         {% if agent.correo2 != "" %}<li><i class="fas fa-check"></i>{{agent.correo2}}</li>{% endif %}
 
-                                      </ul>
+                                        </ul>
 
-                                      <span>{% if agent.url_facebook %}<a href={{agent.url_facebook}}><i class="fab fa-facebook-square"></i> </a>{% endif %}</span>
-                                      <span>{% if agent.url_twitter %}<a href={{agent.url_twitter}}><i class="fab fa-twitter-square"></i> </a>{% endif %}</span>
-                                      <span>{% if agent.url_linkedin %}<a href={{agent.url_linkedin}}><i class="fab fa-linkedin"></i> </a>{% endif %}</span>
-                                      <span>{% if agent.url_youtube %}<a href={{agent.url_youtube}}><i class="fab fa-youtube"></i> </a>{% endif %}</span>
-                                      <span>{% if agent.url_instagram %}<a href={{agent.url_instagram}}><i class="fab fa-instagram-square"></i></a>{% endif %}</span>
-  
+                                        <span>{% if agent.url_facebook %}<a href={{agent.url_facebook}}><i class="fab fa-facebook-square"></i> </a>{% endif %}</span>
+                                        <span>{% if agent.url_twitter %}<a href={{agent.url_twitter}}><i class="fab fa-twitter-square"></i> </a>{% endif %}</span>
+                                        <span>{% if agent.url_linkedin %}<a href={{agent.url_linkedin}}><i class="fab fa-linkedin"></i> </a>{% endif %}</span>
+                                        <span>{% if agent.url_youtube %}<a href={{agent.url_youtube}}><i class="fab fa-youtube"></i> </a>{% endif %}</span>
+                                        <span>{% if agent.url_instagram %}<a href={{agent.url_instagram}}><i class="fab fa-instagram-square"></i></a>{% endif %}</span>
+
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                            <!--------------------------------------------------------------------------------------->
+                        
+                        <div class="col-md-1 d-none d-md-block" ></div>
+
+                            <br>
+                            <div class="col-md-7 d-md-block" >
+                                <div style="margin-top: 10%; width: 100%; "> 
+                                    <h3> {{agent.nombre}} {{agent.apellido}} </h3>
+                                    <span>Se registró en {{agent.created}}</span><br><br>
+                                    <p><h3>Acerca de:</h3><br>{{agent.desc|linebreaks}}</p><br>
+                                    <p><i class="fas fa-home"></i> &nbsp; Zona donde opera: {{ agent.zona_operacion }}</p><br>
+                                    <p><span>Agente inmobiliario</span> - Asenfi inmobiliaria</p><br>
+
+                                    <h4>Propiedades de {{ agent.nombre }} {{ agent.apellido }}</h4><br>
+
+                                    <div style="  display: flex;
+                                                flex-wrap: wrap;
+
+                                                align-content: space-between;">
+
+                                    {% for inmueble in inmuebles %}
+
+                                    <div class='container' style="width: 50%; 
+                                                                    height: 10%;
+                                                                    border-radius: 25px;
+                                                                    border-color: black; ">
+
+                                        {% if inmueble.moneda == "P" %} {% setvar "RD$" as simb_moneda %} {% setvar "pesos" as info_moneda %}
+                                        {% elif inmueble.moneda == "D" %} {% setvar "US$" as simb_moneda %} {% setvar "dólares" as info_moneda %}
+                                        {% endif %}
+                                        
+
+                                        <img src="{{inmueble.image1.url}}"
+                                            alt="text" 
+                                            class="img-fluid cropped"
+                                            style="width: 100%; height: 200px;"><br>
+                                        
+                                        <!---Estrella giratoria de color rojo-->                          
+                                        <!--<i class="fa fa-star fa-lg fa-spin" style="color:red;"></i>--->  
+                                        <p><span style="font-size: 20px; color:red;" >&#9733;</span>&nbsp; {{simb_moneda}}{{inmueble.precio|floatformat|intcomma}} {{info_moneda}}</p>
+                                        <p><i class="fas fa-align-justify"></i> &nbsp; &nbsp;  {{ inmueble.titulo }}</p>
+                                        
+                                    </div>
+
+                                    {% endfor %}
+
                                     </div>
 
                                 </div>
-                          </div>
-                      </div>
-                      
-
-                      <!--- FOTO DEL AGENTE SOLO EN pc en adelante-->
-                    
-                      <div class="col-md-4 d-none d-md-block" style="margin-top:5%; ">
-                          <div class="agent-photo">
-                              <div class="media_agent">
-                                
-                                
-                                  <img class="agent_cropped" 
-                                      src="{{agent.image1.url}}" 
-                                      alt="image"
-                                      style=" background-repeat: no-repeat;
-                                              background-position: 50%;
-                                              border-radius: 50%;
-                                              background-size: 100% auto;">
-                          
-                                  <div class="media-body agent-details">
-                                      <!--<i class="fa fa-star fa-lg fa-spin"></i> Esta estrella da vueltas-->
-                                      <p><h3><span style="font-size: 35px;" >&#10027;</span> {{contador}} propiedades</h3></p><hr>
-
-                                    <h4>Contacto</h4><br>
-                                    <ul style="margin-left:0px;">
-
-                                      <li><i class="fas fa-check"></i> {{ agent.telefono }}</li>
-                                      {% if agent.telefono2 != "" %}<li><i class="fas fa-check"></i>{{agent.telefono2}}</li>{% endif %}
-                                      <li><i class="fas fa-check"></i> {{ agent.correo }}</li>
-                                      {% if agent.correo2 != "" %}<li><i class="fas fa-check"></i>{{agent.correo2}}</li>{% endif %}
-
-                                    </ul>
-
-                                    <span>{% if agent.url_facebook %}<a href={{agent.url_facebook}}><i class="fab fa-facebook-square"></i> </a>{% endif %}</span>
-                                    <span>{% if agent.url_twitter %}<a href={{agent.url_twitter}}><i class="fab fa-twitter-square"></i> </a>{% endif %}</span>
-                                    <span>{% if agent.url_linkedin %}<a href={{agent.url_linkedin}}><i class="fab fa-linkedin"></i> </a>{% endif %}</span>
-                                    <span>{% if agent.url_youtube %}<a href={{agent.url_youtube}}><i class="fab fa-youtube"></i> </a>{% endif %}</span>
-                                    <span>{% if agent.url_instagram %}<a href={{agent.url_instagram}}><i class="fab fa-instagram-square"></i></a>{% endif %}</span>
-
-                                  </div>
-                              </div>
-                          </div>
-                        </div>
-                        <!--------------------------------------------------------------------------------------->
-                      
-                      <div class="col-md-1 d-none d-md-block" ></div>
-
-                        <br>
-                        <div class="col-md-7 d-md-block" >
-                            <div style="margin-top: 10%; width: 100%; "> 
-                                <h3> {{agent.nombre}} {{agent.apellido}} </h3>
-                                <span>Se registró en {{agent.created}}</span><br><br>
-                                <p><h3>Acerca de:</h3><br>{{agent.desc|linebreaks}}</p><br>
-                                <p><i class="fas fa-home"></i> &nbsp; Zona donde opera: {{ agent.zona_operacion }}</p><br>
-                                <p><span>Agente inmobiliario</span> - Asenfi inmobiliaria</p><br>
-
-                                <h4>Propiedades de {{ agent.nombre }} {{ agent.apellido }}</h4><br>
-
-                                <div style="  display: flex;
-                                              flex-wrap: wrap;
-
-                                              align-content: space-between;">
-
-                                {% for inmueble in inmuebles %}
-
-                                  <div class='container' style="width: 50%; 
-                                                                height: 10%;
-                                                                border-radius: 25px;
-                                                                border-color: black; ">
-
-                                      {% if inmueble.moneda == "P" %} {% setvar "RD$" as simb_moneda %} {% setvar "pesos" as info_moneda %}
-                                      {% elif inmueble.moneda == "D" %} {% setvar "US$" as simb_moneda %} {% setvar "dólares" as info_moneda %}
-                                      {% endif %}
-                                      
-
-                                      <img src="{{inmueble.image1.url}}"
-                                           alt="text" 
-                                           class="img-fluid cropped"
-                                           style="width: 100%; height: 200px;"><br>
-                                      
-                                      <!---Estrella giratoria de color rojo-->                          
-                                      <!--<i class="fa fa-star fa-lg fa-spin" style="color:red;"></i>--->  
-                                      <p><span style="font-size: 20px; color:red;" >&#9733;</span>&nbsp; {{simb_moneda}}{{inmueble.precio|floatformat|intcomma}} {{info_moneda}}</p>
-                                      <p><i class="fas fa-align-justify"></i> &nbsp; &nbsp;  {{ inmueble.titulo }}</p>
-                                    
-                                  </div>
-
-                                {% endfor %}
-
-                                </div>
-
                             </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <h3 class='container my-4 text-left text-secondary'><b>Propiedades similares:</b></h3>
+
+                    <!--End Hero section-->
+        <div class="container" >
+
+            <div class="row" style="height: 50%;">
+
+                <div id="content" class="col-lg-12" style="	border:#CCCCCC 1px solid;
+                                                            border-radius: 5px;
+                                                            margin-bottom: 0px;
+                                                            width: 100%;
+                                                            height: 100%;
+                                                            padding: 10px;"> 
+
+                    <a href="#" class="left-arrow" style="position:relative;
+                                                          right: -90%;
+                                                          margin-top: -9px;"><img src="../../../static/core/images/icons/left-arrowMod.png" /></a>
+                    <a href="#" class="right-arrow" style="position:relative;
+                                                           right: -93%;
+                                                           margin-top:-29px;"><img src="../../../static/core/images/icons/right-arrowMod.png" /></a>
+                    <div id="carrusel" style=" float:left;
+                                               width: 100%;
+                                               overflow:hidden;
+                                               height:100%;
+                                               position:relative;
+                                               margin-top:40px;
+                                               margin-bottom:20px;">
+
+                        <div class="carrusel" style="width:4000px;
+                                                    left:0px;
+                                                    position:inherit;
+                                                    z-index:0;">
+                                         
+                                    {% for inmuebleGral in inmueblesGral %}
+
+                                            {% if inmuebleGral.moneda == "P" %} {% setvar "RD$" as simb_moneda %} {% setvar "pesos" as info_moneda %}
+                                            {% elif inmuebleGral.moneda == "D" %} {% setvar "US$" as simb_moneda %} {% setvar "dólares" as info_moneda %}
+                                            {% endif %}
+                                             
+                                            <div class="product" id="product_{{ forloop.counter0 }}" style="float: left;
+                                                                                                    height: 70%;
+                                                                                                    margin-right: 5px;
+                                                                                                    width: 7.3%;
+                                                                                                    justify-content: left;
+                                                                                                    text-align: left;    
+                                                                                                    border:#CCCCCC 0px none;">
+                                                <!--<span style='font-size:20px; position: absolute; left: 4.5%;'>&#10084;</span>-->
+                                                <img style="border-radius: 5%; 
+                                                            background-size: 5% auto;  
+                                                            cursor:pointer;
+                                                            width: 70%;
+                                                            height: 50%;" 
+                                                    src="{{inmuebleGral.image1.url}}" width="195" height="100" />
+                                                <p style="color:#89898a; text-align: left;">Aún no hay reseñas</p>
+                                                <p style="justify-content: left;">{{inmuebleGral.titulo}}:{{inmuebleGral.desc}}</p>
+                                                <br/><b>{{ nAutos }} {{simb_moneda}}{{inmuebleGral.precio|floatformat|intcomma}} {{info_moneda}}</b>
+                                            </div>    
+
+                                    {% endfor %}   
                         </div>
+                    </div>
 
                 </div>
-             </div>
-          </div>
-      </section>
-      <!--End Hero section-->
 
-      <!-- js placed at the end of the document so the pages load faster -->
-      <script src="/static/core/js/jquery.min.js"></script>
-      <script src="/static/core/js/jquery.validate.min.js"></script>
-      <script src="/static/core/js/bootstrap.min.js"></script>
-      <script src="/static/core/js/popper.min.js"></script>
-      <script src="/static/core/js/jquery.magnific-popup.min.js"></script>
-      <script src="/static/core/js/owl.carousel.js"></script>
-      <script src="/static/core/js/SmoothScroll.min.js"></script>
-      <!--common script file-->
-      <script src="/static/core/js/main.js"></script>
+                <div class="row">
+                    <div class="col">
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <!-- Bloque de anuncios adaptable -->
+                        <ins class="adsbygoogle"
+                            style="display:block; margin-bottom: 15px;"
+                            data-ad-client="ca-pub-6676636635558550"
+                            data-ad-slot="8523024962"
+                            data-ad-format="auto"
+                            data-full-width-responsive="true"></ins>
+                        <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        </section>
+
+
+        <!-- js placed at the end of the document so the pages load faster -->
+        <script src="/static/core/js/jquery.min.js"></script>
+        <script src="/static/core/js/jquery.validate.min.js"></script>
+        <script src="/static/core/js/bootstrap.min.js"></script>
+        <script src="/static/core/js/popper.min.js"></script>
+        <script src="/static/core/js/jquery.magnific-popup.min.js"></script>
+        <script src="/static/core/js/owl.carousel.js"></script>
+        <script src="/static/core/js/SmoothScroll.min.js"></script>
+        <!--common script file-->
+        <script src="/static/core/js/main.js"></script>
+
+
+        <script>
+            var current = 0;
+            var imagenes = new Array();
+            
+            $(document).ready(function() {
+                var numImages = 6;
+                if (numImages <= 3) {
+                    $('.right-arrow').css('display', 'none');
+                    $('.left-arrow').css('display', 'none');
+                }
+            
+                $('.left-arrow').on('click',function() {
+                    if (current > 0) {
+                        current = current - 1;
+                    } else {
+                        current = numImages - 3;
+                    }
+            
+                    $(".carrusel").animate({"left": -($('#product_'+current).position().left)}, 600);
+            
+                    return false;
+                });
+            
+                $('.left-arrow').on('hover', function() {
+                    $(this).css('opacity','0.5');
+                }, function() {
+                    $(this).css('opacity','1');
+                });
+            
+                $('.right-arrow').on('hover', function() {
+                    $(this).css('opacity','0.5');
+                }, function() {
+                    $(this).css('opacity','1');
+                });
+            
+                $('.right-arrow').on('click', function() {
+                    if (numImages > current + 3) {
+                        current = current+1;
+                    } else {
+                        current = 0;
+                    }
+            
+                    $(".carrusel").animate({"left": -($('#product_'+current).position().left)}, 600);
+            
+                    return false;
+                });
+            });
+            </script>
+
+
     </body>
-  </html>
+</html>
 
 {% endblock %}

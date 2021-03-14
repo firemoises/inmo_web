@@ -180,8 +180,8 @@
                     <div class="media_agent">
                       <a href="{% url 'agents' agent.id %}" class="link" style=" color: black;"><img class="agent_cropped" src="{{agent.image1.url}}" alt="image"></a>
                       <div class="media-body agent-details">
-                        <a href="{% url 'agents' agent.id %}" class="link" style=" color: black;"><h5>{{agent.nombre}} {{agent.apellido}}</h5></a>
-                        <p><a href="{% url 'agents' agent.id %}" class="link" style=" color: black;">{{agent.desc|linebreaks}}</a></p>
+                        <a href="{% url 'agents' agent.id %}" class="link" style="text-decoration: none; color: black;"><h5>{{agent.nombre}} {{agent.apellido}}</h5></a>
+                        <p><a href="{% url 'agents' agent.id %}" class="link" style="text-decoration: none; color: black;">{{agent.desc|linebreaks}}</a></p>
                         <p><span>Agente inmobiliario</span> - Asenfi inmobiliaria</p>
                         <div class="social-links-">
                           {% if agent.url_facebook %}<a href={{agent.url_facebook}}><i class="fab fa-facebook-square"></i> </a>{% endif %}

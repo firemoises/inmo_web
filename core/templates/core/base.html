@@ -1,3 +1,4 @@
+    {% load static %}
 
       <!--seo-meta-tag-->
       <meta charset="UTF-8">
@@ -15,13 +16,17 @@
       <!--google-fonts-->
       <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300&display=swap" rel="stylesheet">
       <!-- template-style-->
-      <link rel="stylesheet" type="text/css" href="/static/core/css/style.css">
+      <link rel="stylesheet" type="text/css" href='{% static "core/css/style.css"  %}'>
       <link rel="stylesheet" type="text/css" href="/static/core/css/responsive.css">
+      <!--<link rel="stylesheet" type="text/css" href='{% static "css/style.css" %}'>-->
       <!---Integrando sweetAlert al proyecto-->
       <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.all.min.js">
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.all.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.all.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.all.min.js" integrity="sha256-92U7H+uBjYAJfmb+iNPi7DPoj795ZCTY4ZYmplsn/fQ=" crossorigin="anonymous"></script>
+      <!--Integrando algunos recursos de jquery y cloudflare-->
+      <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 
   {% block content %}{% endblock %} 
 
