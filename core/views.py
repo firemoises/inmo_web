@@ -4,6 +4,8 @@ from django.core.mail import EmailMessage
 from portfolio.models import Inmueble
 from agents.models import Agent
 from contact.forms import ContactForm
+from core.scraper import scrape_data_corotos 
+import os
 
 # Create your views here.
 def home(request):
@@ -58,3 +60,19 @@ def agents(request,agents_id):
     contGral  =  inmueblesGral.all().count()
    
     return render(request,"core/agents.html",{"inmuebles":inmuebles,"agent":agent, "contador":contador,"inmueblesGral":inmueblesGral,"contGral":contGral})
+
+
+def prueba(request):
+
+    #url = "https://www.corotos.com.do/sc/inmuebles-en-venta/casas"
+    url = "https://www.corotos.com.do/sc/inmuebles-en-venta/apartamentos"
+    tipo_neg = "Venta"
+    driver = "core/chromedriver_88.exe"
+    solo_agentes = 0
+    no_dupli = 1
+
+    #Vamos a llamar esto n veces teniendo en cuenta que siempre se para solo
+    for n in range(1):
+        feats = scrape_data_corotos(url,tipo_neg,2,driver,loads=0,solo_agentes=solo_agentes,no_dupli=no_dupli)
+
+    return render(request,"core/prueba.html")

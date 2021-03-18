@@ -6,3 +6,7 @@ pylint==2.6.0
 pylint-django==2.3.0
 pylint-plugin-utils==0.6
 django-ckeditor==5.4.0
+selenium
+pymongo
+requests
+lxml

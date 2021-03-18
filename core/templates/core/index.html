@@ -10,9 +10,6 @@
       {% load custom_template_tags %}
       {% load humanize %}
 
-      {% if inmueble.moneda == "P" %} {% setvar "RD$" as simb_moneda %} {% setvar "pesos" as info_moneda %}
-      {% elif inmueble.moneda == "D" %} {% setvar "US$" as simb_moneda %} {% setvar "dolares" as info_moneda %}
-      {% endif %}
       
       {% block content %}
 
@@ -75,6 +72,9 @@
 
                   <hr class="my-3"/>
 
+                  {% if inmueble.moneda == "P" %} {% setvar "RD$" as simb_moneda %} {% setvar "pesos" as info_moneda %}
+                  {% elif inmueble.moneda == "D" %} {% setvar "US$" as simb_moneda %} {% setvar "dolares" as info_moneda %}
+                  {% endif %}
 
                   <ul>
                     <li><b>Codigo:</b> {{inmueble.id}}</li>
@@ -252,6 +252,15 @@
                   </div>
                   <button class="btn btn-primary" type="submit">Enviar mensaje</button>
                 </form>
+
+                <div>
+                <br>
+                  <form action="prueba.html" method="POST">
+                    {% csrf_token %}
+                    <button class="btn btn-success" type="submit">Probar script</button>
+                  </form>
+                </div>
+
               </div>
 
             </div>

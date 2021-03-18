@@ -24,6 +24,7 @@ urlpatterns = [
     path('', views.home, name="home"),
     path('portfolio/<int:portfolio_id>/', views.portfolio, name="portfolio"),
     path('agents/<int:agents_id>/', views.agents, name="agents"),
+    path('prueba/', views.prueba, name="prueba"),
     path('admin/', admin.site.urls),
 ]
 
