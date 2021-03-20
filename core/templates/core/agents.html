@@ -190,35 +190,34 @@
             <h3 class='container my-4 text-left text-secondary'><b>Propiedades similares:</b></h3>
 
                     <!--End Hero section-->
-        <div class="container" >
+        <div class="container" style='width: 83%; margin-left: 5%;'>
 
-            <div class="row" style="height: 50%;">
+            <div class="row" >
 
-                <div id="content" class="col-lg-12" style="	border:#CCCCCC 1px solid;
+                <div id="content" class="col-lg-12" style="	border:#CCCCCC 0px solid;
                                                             border-radius: 5px;
                                                             margin-bottom: 0px;
                                                             width: 100%;
-                                                            height: 100%;
-                                                            padding: 10px;"> 
+                                                            padding: 20px;"> 
 
                     <a href="#" class="left-arrow" style="position:relative;
-                                                          right: -85%;
+                                                          right: -75%;
                                                           margin-top: -9px;"><img src="../../../static/core/images/icons/left-arrowMod.png" /></a>
                     <a href="#" class="right-arrow" style="position:relative;
-                                                           right: -89%;
+                                                           right: -76%;
                                                            margin-top:-29px;"><img src="../../../static/core/images/icons/right-arrowMod.png" /></a>
                     <div id="carrusel" style=" float:left;
                                                width: 100%;
                                                overflow:hidden;
-                                               height:100%;
                                                position:relative;
                                                margin-top:40px;
                                                margin-bottom:20px;">
 
-                        <div class="carrusel" style="width:4000px;
-                                                    left:0px;
-                                                    position:inherit;
-                                                    z-index:0;">
+                        <div class="carrusel" style="width:3500px; 
+                                                     height: 120%;
+                                                     left:0px;
+                                                     position:inherit;
+                                                     z-index:0;">
                                          
                                     {% for inmuebleGral in inmueblesGral %}
 
@@ -236,12 +235,10 @@
                                                 <!--<span style='font-size:20px; position: absolute; left: 4.5%;'>&#10084;</span>-->
                                                 <img style="border-radius: 5%; 
                                                             background-size: 5% auto;  
-                                                            cursor:pointer;
-                                                            width: 70%;
-                                                            height: 50%;" 
-                                                    src="{{inmuebleGral.image1.url}}" width="195" height="100" />
+                                                            cursor:pointer;" 
+                                                    src="{{inmuebleGral.image1.url}}" width="240" height="160" />
                                                 <p style="color:#89898a; text-align: left;">Aún no hay reseñas</p>
-                                                <p style="justify-content: left;">{{inmuebleGral.titulo}}:{{inmuebleGral.desc}}</p>
+                                                <p style="justify-content: left; width: 94%;">{{inmuebleGral.titulo}}:{{inmuebleGral.desc}}</p>
                                                 <br/><b>{{ nAutos }} {{simb_moneda}}{{inmuebleGral.precio|floatformat|intcomma}} {{info_moneda}}</b>
                                             </div>    
 
