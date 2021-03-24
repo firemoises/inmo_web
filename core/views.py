@@ -77,24 +77,26 @@ def prueba(request):
     for n in range(1):
         feats = scrape_data_corotos(url,tipo_neg,2,driver,loads=0,solo_agentes=solo_agentes,no_dupli=no_dupli)
 
-    return render(request,"core/prueba.html",{"resp":resp})
+    return render(request,"core/prueba.html",{"resp":feats})
 
 def prueba2(request):
     from pyvirtualdisplay import Display
     from selenium import webdriver
 
     with Display():
-        # we can now start Firefox and it will run inside the virtual display
-        browser = webdriver.Firefox()
 
-        # put the rest of our selenium code in a try/finally
-        # to make sure we always clean up at the end
         try:
-            browser.get('http://www.google.com')
-            print(browser.title) #this should print "Google"
-            titulo = browser.title
+            #url = "https://www.corotos.com.do/sc/inmuebles-en-venta/casas"
+            url = "https://www.corotos.com.do/sc/inmuebles-en-venta/apartamentos"
+            tipo_neg = "Venta"
+            #driver = os.getcwd()+"/chromedriver_88.exe"
+            driver = os.getcwd()+"/geckodriver.exe"
+            solo_agentes = 0
+            no_dupli = 1
+            resp = os.getcwd()
 
-        finally:
-            browser.quit()
+            #Vamos a llamar esto n veces teniendo en cuenta que siempre se para solo
+            for n in range(1):
+                feats = scrape_data_corotos(url,tipo_neg,2,driver,loads=0,solo_agentes=solo_agentes,no_dupli=no_dupli)
 
-    return render(request,"core/prueba.html",{"resp":titulo})
+    return render(request,"core/prueba.html",{"resp":feats})

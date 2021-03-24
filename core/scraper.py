@@ -294,3 +294,7 @@ def scrape_data_corotos(url,tipo_neg,metodo,chrome_drv,loads=20,solo_agentes=0,n
 
     #Cuando hayamos terminado
     driver.close()
+    driver.quit()
+
+    df = pd.DataFrame(list(col.find()))
+    return df
