@@ -28,11 +28,9 @@ def scrape_data_corotos(url,tipo_neg,metodo,chrome_drv,loads=20,solo_agentes=0,n
     client = MongoClient('localhost')
     db = client['inmo_oport']
     col = db["propiedades"]
-    
-    op = webdriver.ChromeOptions()
-    op.add_argument('headless')
 
-    driver = webdriver.Chrome(chrome_drv,options=op)
+    #driver = webdriver.Chrome(chrome_drv)
+    driver = webdriver.Firefox()
     driver.get(url)
     
         
