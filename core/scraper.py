@@ -10,6 +10,7 @@ def scrape_data_corotos(url,tipo_neg,metodo,chrome_drv,loads=20,solo_agentes=0,n
     from pymongo import MongoClient
     import requests
     from lxml import html
+    import pandas as pd
     
     
     ## Funcion para ver si un doc existe
