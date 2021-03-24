@@ -92,6 +92,9 @@ def prueba2(request):
         try:
             browser.get('http://www.google.com')
             print(browser.title) #this should print "Google"
+            titulo = browser.title
 
         finally:
             browser.quit()
+
+    return render(request,"core/prueba.html",{"resp":titulo})
