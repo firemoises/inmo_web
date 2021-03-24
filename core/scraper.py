@@ -29,7 +29,10 @@ def scrape_data_corotos(url,tipo_neg,metodo,chrome_drv,loads=20,solo_agentes=0,n
     db = client['inmo_oport']
     col = db["propiedades"]
     
-    driver = webdriver.Chrome(chrome_drv)
+    op = webdriver.ChromeOptions()
+    op.add_argument('headless')
+
+    driver = webdriver.Chrome(chrome_drv,options=op)
     driver.get(url)
     
         
