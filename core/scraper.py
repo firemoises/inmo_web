@@ -26,9 +26,9 @@ def scrape_data_corotos(url,tipo_neg,metodo,chrome_drv,loads=20,solo_agentes=0,n
 
 
     # Instanciar un cliente de Mongo
-    client = MongoClient('localhost')
-    db = client['inmo_oport']
-    col = db["propiedades"]
+    #client = MongoClient('localhost')
+    #db = client['inmo_oport']
+    #col = db["propiedades"]
 
     #driver = webdriver.Chrome(chrome_drv)
     driver = webdriver.Firefox()
@@ -61,6 +61,7 @@ def scrape_data_corotos(url,tipo_neg,metodo,chrome_drv,loads=20,solo_agentes=0,n
     for n_link in range(1,cant_ads): #La cantidad de propiedades a recoger
         
         ##Si ya esta en la BD no guardar la prop
+        """
         if no_dupli == 1:
             
             try:
@@ -74,7 +75,7 @@ def scrape_data_corotos(url,tipo_neg,metodo,chrome_drv,loads=20,solo_agentes=0,n
                 print("Parece hubo algun error revisando si habia duplicados, pasaremos a la siguiente propiedad")
                 continue
     
-    
+        """
     
         #####SI SOLO QUEREMOS SCRAPEAR AGENTES        
         if solo_agentes == 1:
@@ -168,6 +169,7 @@ def scrape_data_corotos(url,tipo_neg,metodo,chrome_drv,loads=20,solo_agentes=0,n
                         
                         
                         ##Si ya esta en la BD no entrar en la prop 2
+                        """
                         if no_dupli == 1:
                             try:
                                 obj = col.find({'precio_raw':precio_raw,'titulo':titulo})
@@ -178,9 +180,10 @@ def scrape_data_corotos(url,tipo_neg,metodo,chrome_drv,loads=20,solo_agentes=0,n
                                 print("Parece hubo algun error revisando si habia duplicados, pasaremos a la siguiente propiedad")
                                 continue
                                 
-            
+                        """
 
                         #Insertar propiedad
+                        """
                         col.insert_one({
                             'titulo': titulo,
                             'precio_raw': precio_raw,
@@ -199,7 +202,7 @@ def scrape_data_corotos(url,tipo_neg,metodo,chrome_drv,loads=20,solo_agentes=0,n
                             'agente': es_agente
                         })
                         print("Agregada ",n_link,titulo)
-
+                        """
 
                         sleep(random.uniform(3,6))
                         #driver.back()
@@ -269,6 +272,7 @@ def scrape_data_corotos(url,tipo_neg,metodo,chrome_drv,loads=20,solo_agentes=0,n
 
 
                         #Insertar propiedad
+                        """
                         col.insert_one({
                             'titulo': titulo,
                             'precio_raw': precio_raw,
@@ -287,6 +291,7 @@ def scrape_data_corotos(url,tipo_neg,metodo,chrome_drv,loads=20,solo_agentes=0,n
                             'agente': es_agente
                         })
                         print("Agregada ",n_link,titulo)
+                        """
             except:
                 print("No se pudo cargar esta prop")
                 #driver.back()
@@ -297,5 +302,5 @@ def scrape_data_corotos(url,tipo_neg,metodo,chrome_drv,loads=20,solo_agentes=0,n
     driver.close()
     driver.quit()
 
-    df = pd.DataFrame(list(col.find()))
-    return df
+    #df = pd.DataFrame(list(col.find()))
+    #return df
