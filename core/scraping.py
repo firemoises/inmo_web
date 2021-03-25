@@ -21,6 +21,6 @@ with Display():
     browser = webdriver.Firefox()
     browser.get('http://www.google.com')
     name_boton_load_more = "//div[@id='SIvCob']"
-    print(browser.find_element_by_xpath(name_boton_load_more.text))
+    print(browser.find_element_by_xpath(name_boton_load_more).text)
 
 #print(feats)
