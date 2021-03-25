@@ -20,6 +20,7 @@ with Display():
 
     browser = webdriver.Firefox()
     browser.get('http://www.google.com')
-    print(browser.title) #this should print "Google"
-    
-print(feats)
+    name_boton_load_more = "//div[@id='SIvCob']"
+    print(driver.find_element_by_xpath(name_boton_load_more.text))
+
+#print(feats)
