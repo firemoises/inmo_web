@@ -18,4 +18,4 @@ with Display():
     for n in range(1):
         feats = scrape_data_corotos(url,tipo_neg,2,driver,loads=0,solo_agentes=solo_agentes,no_dupli=no_dupli)
 
-#print(feats)
+print(feats)

@@ -12,6 +12,7 @@ def scrape_data_corotos(url,tipo_neg,metodo,chrome_drv,loads=20,solo_agentes=0,n
     from lxml import html
     import pandas as pd
     
+    props = {}
     
     ## Funcion para ver si un doc existe
     def existe_doc(obj):
@@ -60,6 +61,7 @@ def scrape_data_corotos(url,tipo_neg,metodo,chrome_drv,loads=20,solo_agentes=0,n
     
     for n_link in range(1,cant_ads): #La cantidad de propiedades a recoger
         
+        caracs = []
         ##Si ya esta en la BD no guardar la prop
         """
         if no_dupli == 1:
@@ -203,6 +205,11 @@ def scrape_data_corotos(url,tipo_neg,metodo,chrome_drv,loads=20,solo_agentes=0,n
                         })
                         print("Agregada ",n_link,titulo)
                         """
+                        caracs.append(titulo)
+                        caracs.append(precio_raw)
+                        caracs.append(fecha_post_raw)
+                        caracs.append(location)
+                        props[n_link] = caracs
 
                         sleep(random.uniform(3,6))
                         #driver.back()
@@ -292,6 +299,12 @@ def scrape_data_corotos(url,tipo_neg,metodo,chrome_drv,loads=20,solo_agentes=0,n
                         })
                         print("Agregada ",n_link,titulo)
                         """
+
+                        caracs.append(titulo)
+                        caracs.append(precio_raw)
+                        caracs.append(fecha_post_raw)
+                        caracs.append(location)
+                        props[n_link] = caracs
             except:
                 print("No se pudo cargar esta prop")
                 #driver.back()
@@ -304,3 +317,5 @@ def scrape_data_corotos(url,tipo_neg,metodo,chrome_drv,loads=20,solo_agentes=0,n
 
     #df = pd.DataFrame(list(col.find()))
     #return df
+
+    return props
