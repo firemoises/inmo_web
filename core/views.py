@@ -81,7 +81,6 @@ def prueba(request):
 
 def prueba2(request):
     from pyvirtualdisplay import Display
-    from selenium import webdriver
 
     with Display():
 

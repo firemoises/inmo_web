@@ -1,6 +1,5 @@
 from scraper import scrape_data_corotos 
 from pyvirtualdisplay import Display
-from selenium import webdriver
 import os
 
 with Display():
