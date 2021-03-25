@@ -15,6 +15,6 @@ with Display():
 
     #Vamos a llamar esto n veces teniendo en cuenta que siempre se para solo
     for n in range(1):
-        feats = scrape_data_corotos(url,tipo_neg,2,driver,loads=0,solo_agentes=solo_agentes,no_dupli=no_dupli)
+        feats = scrape_data_corotos(url,tipo_neg,2,driver,loads=1,solo_agentes=solo_agentes,no_dupli=no_dupli)
 
 print(feats)

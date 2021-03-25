@@ -35,7 +35,8 @@ def scrape_data_corotos(url,tipo_neg,metodo,chrome_drv,loads=20,solo_agentes=0,n
     driver = webdriver.Firefox()
     driver.get(url)
     
-        
+    print(url)
+    print(driver)
     ############# BLOQUE PARA CLICKEAR EN LOAD MORE
     
     for n in range(loads):
