@@ -1,6 +1,7 @@
 from scraper import scrape_data_corotos 
 from pyvirtualdisplay import Display
 import os
+from selenium import webdriver
 
 with Display():
 
@@ -14,7 +15,11 @@ with Display():
     resp = os.getcwd()
 
     #Vamos a llamar esto n veces teniendo en cuenta que siempre se para solo
-    for n in range(1):
-        feats = scrape_data_corotos(url,tipo_neg,2,driver,loads=1,solo_agentes=solo_agentes,no_dupli=no_dupli)
+    #for n in range(1):
+        #feats = scrape_data_corotos(url,tipo_neg,2,driver,loads=1,solo_agentes=solo_agentes,no_dupli=no_dupli)
 
+    browser = webdriver.Firefox()
+    browser.get('http://www.google.com')
+    print(browser.title) #this should print "Google"
+    
 print(feats)
