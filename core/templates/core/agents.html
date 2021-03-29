@@ -233,12 +233,15 @@
                                                                                                     text-align: left;    
                                                                                                     border:#CCCCCC 0px none;">
                                                 <!--<span style='font-size:20px; position: absolute; left: 4.5%;'>&#10084;</span>-->
+                                                <a href="{% url 'agents' inmuebleGral.agente_id %}" class="link" style=" color: black;">
                                                 <img style="border-radius: 5%; 
                                                             background-size: 5% auto;  
                                                             cursor:pointer;" 
-                                                    src="{{inmuebleGral.image1.url}}" width="240" height="160" />
-                                                <p style="color:#89898a; text-align: left;">Aún no hay reseñas</p>
-                                                <p style="justify-content: left; width: 94%;">{{inmuebleGral.titulo}}:{{inmuebleGral.desc}}</p>
+                                                    src="{{inmuebleGral.image1.url}}" width="240" height="160" /></a>
+                                                <p style="color:#89898a; text-align: left;">Aún no hay reseñas</p> 
+                                                <a href="{% url 'agents' inmuebleGral.agente_id %}" class="link" style=" color: black;">
+                                                  <p style="justify-content: left; width: 94%;">{{inmuebleGral.titulo|truncatewords:"20"}}:{{inmuebleGral.desc|truncatewords:"20"}}</p>
+                                                </a>
                                                 <br/><b>{{ nAutos }} {{simb_moneda}}{{inmuebleGral.precio|floatformat|intcomma}} {{info_moneda}}</b>
                                             </div>    
 
