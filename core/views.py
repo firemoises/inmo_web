@@ -1,17 +1,20 @@
+from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render,HttpResponse,redirect
-from django.urls import reverse
+from core.scraper import scrape_data_corotos
+from django.template import RequestContext
 from django.core.mail import EmailMessage
 from portfolio.models import Inmueble
-from agents.models import Agent
 from contact.forms import ContactForm
-from core.scraper import scrape_data_corotos 
+from django.conf.urls import handler404
+from django.urls import reverse
+from agents.models import Agent
 import os
 
 # Create your views here.
 def home(request):
     return render(request,"core/index.html")
 
-def portfolio(request,portfolio_id):
+def portfolio(request,portfolio_id): 
 
     inmueble = Inmueble.objects.get(id=portfolio_id) #Inmueble.objects.all().filter(id=portfolio_id)
     agent = Agent.objects.get(id=inmueble.agente_id)
@@ -53,14 +56,19 @@ def portfolio(request,portfolio_id):
 
 
 def agents(request,agents_id):
-    agent = Agent.objects.get(id=agents_id)
-    inmuebles = Inmueble.objects.filter(agente=agent.id,estado=1) #Inmueble.objects.all().filter(id=portfolio_id)
-    inmueblesGral = Inmueble.objects.filter(estado=1) #Inmueble.objects.all().filter(id=portfolio_id)
-    contador  =  inmuebles.all().count()
-    contGral  =  inmueblesGral.all().count()
-   
-    return render(request,"core/agents.html",{"inmuebles":inmuebles,"agent":agent, "contador":contador,"inmueblesGral":inmueblesGral,"contGral":contGral})
+        agent = Agent.objects.get(id=agents_id)
+        inmuebles = Inmueble.objects.filter(agente=agent.id,estado=1) #Inmueble.objects.all().filter(id=portfolio_id)
+        inmueblesGral = Inmueble.objects.filter(estado=1) #Inmueble.objects.all().filter(id=portfolio_id)
+        contador  =  inmuebles.all().count()
+        contGral  =  inmueblesGral.all().count()
+        return render(request,"core/agents.html",{"inmuebles":inmuebles,"agent":agent, "contador":contador,"inmueblesGral":inmueblesGral,"contGral":contGral})
 
+
+#404: página no encontrada
+def pag_404_not_found(request, exception):
+  from django.shortcuts import render
+  return render(request,'core/404.html')
+ 
 
 def prueba(request):
 

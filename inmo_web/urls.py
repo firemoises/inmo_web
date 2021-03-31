@@ -13,22 +13,35 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path
+ 
 from django.conf.urls.static import static
+from django.conf.urls import handler404
+from django.urls import include, path
+from django.contrib import admin
+from django.conf import settings # Para traernos las variables de settings
 from core import views
 
-from django.conf import settings # Para traernos las variables de settings
+#handler404 = core.views.handler404 
 
-urlpatterns = [
+urlpatterns = [ 
     path('', views.home, name="home"),
     path('portfolio/<int:portfolio_id>/', views.portfolio, name="portfolio"),
     path('agents/<int:agents_id>/', views.agents, name="agents"),
     path('prueba/', views.prueba2, name="prueba2"),
-    path('admin/', admin.site.urls),
-]
+    path('admin/', admin.site.urls), 
+] 
 
 #Para poder ver media files en entorno de desarrollo
 if settings.DEBUG:
     from django.conf.urls.static import static
     urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+    urlpatterns +=  static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+
+##las vistas creadas
+handler404 = 'core.views.pag_404_not_found' 
+#handler500 = 'core.views.pag_500_error_server'
+
+
+
+    
