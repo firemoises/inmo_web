@@ -11,11 +11,11 @@ def print_ssh(output):
 host = "148.0.3.66"
 port = 22
 username = "moise"
-password = "Secundario@444"
 
 command = "cd Dropbox"
 command2 = "cd GitHub dropbox"
 command3 = "mkdir pruebassh"
+#command3 = "dir"
 
 ssh = paramiko.SSHClient()
 
@@ -26,11 +26,8 @@ ssh.connect(host, port, username, password)
 channel = ssh.get_transport().open_session()
 channel.invoke_shell()
 
-while channel.recv_ready():
-    channel.recv(9999)
-
-channel.sendall(command)
-channel.sendall(command2)
+#channel.sendall(command)
+#channel.sendall(command2)
 channel.sendall(command3)
 
-print(channel.recv(9999))
+print(channel.recv(99999))
