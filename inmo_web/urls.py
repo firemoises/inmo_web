@@ -15,7 +15,7 @@ Including another URLconf
 """
  
 from django.conf.urls.static import static
-from django.conf.urls import handler404
+from django.conf.urls import handler404, handler500
 from django.urls import include, path
 from django.contrib import admin
 from django.conf import settings # Para traernos las variables de settings
@@ -40,7 +40,7 @@ if settings.DEBUG:
 
 ##las vistas creadas
 handler404 = 'core.views.pag_404_not_found' 
-#handler500 = 'core.views.pag_500_error_server'
+handler500 = 'core.views.error_500_view'
 
 
 

@@ -5,7 +5,7 @@ from django.template import RequestContext
 from django.core.mail import EmailMessage
 from portfolio.models import Inmueble
 from contact.forms import ContactForm
-from django.conf.urls import handler404
+from django.conf.urls import handler404, handler500
 from django.urls import reverse
 from agents.models import Agent
 import os
@@ -68,6 +68,10 @@ def agents(request,agents_id):
 def pag_404_not_found(request, exception):
   from django.shortcuts import render
   return render(request,'core/404.html')
+
+#500: error en el servidor
+def error_500_view(request):
+    return render(request,'core/500.html')
  
 
 def prueba(request):
